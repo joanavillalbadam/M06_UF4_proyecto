@@ -5,10 +5,32 @@
  */
 package controlador;
 
+import Interficies.ModulIn;
+
 /**
  *
  * @author ALUMNEDAM
  */
-public class Modul_control {
+public class Modul_control implements ModulIn{
+
+    @Override
+    public void buscarModul() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void Afegir(Object t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void eliminar(Object t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void modificar(Object t, Object nuevoT) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

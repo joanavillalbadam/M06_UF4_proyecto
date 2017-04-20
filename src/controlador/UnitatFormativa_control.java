@@ -5,10 +5,32 @@
  */
 package controlador;
 
+import Interficies.UnitatFormativaIn;
+
 /**
  *
  * @author ALUMNEDAM
  */
-public class UnitatFormativa_control {
+public class UnitatFormativa_control implements UnitatFormativaIn{
+
+    @Override
+    public void buscarUF() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void Afegir(Object t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void eliminar(Object t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void modificar(Object t, Object nuevoT) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

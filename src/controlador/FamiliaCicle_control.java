@@ -5,10 +5,32 @@
  */
 package controlador;
 
+import Interficies.FamiliaIn;
+
 /**
  *
  * @author ALUMNEDAM
  */
-public class FamiliaCicle_control {
+public class FamiliaCicle_control implements FamiliaIn{
+
+    @Override
+    public void buscarFamilia() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void Afegir(Object t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void eliminar(Object t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void modificar(Object t, Object nuevoT) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

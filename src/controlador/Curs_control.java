@@ -5,10 +5,32 @@
  */
 package controlador;
 
+import Interficies.CursIn;
+
 /**
  *
  * @author ALUMNEDAM
  */
-public class Curs_control {
+public class Curs_control implements CursIn{
+
+    @Override
+    public void buscarCurso() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void Afegir(Object t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void eliminar(Object t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void modificar(Object t, Object nuevoT) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
