@@ -30,7 +30,8 @@ public class Matricula implements Serializable {
     
     private Alumne alumne;
     private Calendar dataMatricula;
-    List<Cicle> cicle = new ArrayList<>();
+    
+    List<UnitatFormativa> unitatFormativa = new ArrayList<>();
     //Si es true sera cursoCompleto y si es false seran uf sueltas
     private boolean modalitat; 
     //true 50 false 100
@@ -63,13 +64,15 @@ public class Matricula implements Serializable {
         this.dataMatricula = dataMatricula;
     }
 
-    public List<Cicle> getCicle() {
-        return cicle;
+    public List<UnitatFormativa> getUnitatFormativa() {
+        return unitatFormativa;
     }
 
-    public void setCicle(List<Cicle> cicle) {
-        this.cicle = cicle;
+    public void setUnitatFormativa(List<UnitatFormativa> unitatFormativa) {
+        this.unitatFormativa = unitatFormativa;
     }
+
+
 
     public boolean isModalitat() {
         return modalitat;
@@ -118,8 +121,10 @@ public class Matricula implements Serializable {
 
     @Override
     public String toString() {
-        return "Matricula{" + "idMatricula=" + idMatricula + ", alumne=" + alumne + ", dataMatricula=" + dataMatricula + ", cicle=" + cicle + ", modalitat=" + modalitat + ", descuentos=" + descuentos + '}';
+        return "Matricula{" + "idMatricula=" + idMatricula + ", alumne=" + alumne + ", dataMatricula=" + dataMatricula + ", unitatFormativa=" + unitatFormativa + ", modalitat=" + modalitat + ", descuentos=" + descuentos + '}';
     }
+
+ 
 
 
     

@@ -13,6 +13,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -31,6 +32,7 @@ public class FamiliaCicle implements Serializable {
     
     
     //TODO: hacer la referencia a la clase cicle
+    @OneToMany(mappedBy="CicleF")
     List<Cicle> cicle = new ArrayList<>();
 
     public FamiliaCicle() {

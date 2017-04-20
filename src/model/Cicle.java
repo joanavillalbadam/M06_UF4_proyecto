@@ -13,6 +13,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -32,10 +35,14 @@ public class Cicle implements Serializable {
     @Column(name = "grau", nullable = false)
     private int grau;
     
-    //
+    @ManyToOne
+    @JoinColumn(name = "familia_cicle")
+    private FamiliaCicle CicleF;
+    
+    @OneToMany(mappedBy="cicleM")
     List<Modul> listaModul = new ArrayList<>();
     
-    //
+    @OneToMany(mappedBy="cicleC")
     List<Curs> listaCurs = new ArrayList<>();
 
     public Cicle() {
