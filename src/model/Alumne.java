@@ -11,14 +11,23 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 /**
  *
  * @author ALUMNEDAM
  */
 @Entity
+@NamedQueries({
+    @NamedQuery(name = Alumne.CONSULTA, query = "SELECT a FROM Alumne a WHERE a.nombreAlum=:nombre")})
+@Table(name = "M6UF4_Alumne")
+
 public class Alumne implements Serializable {
 
+    public static final String CONSULTA = "nomAlum";
+    
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

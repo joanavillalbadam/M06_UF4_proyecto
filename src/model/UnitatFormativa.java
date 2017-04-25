@@ -15,6 +15,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -42,6 +43,9 @@ public class UnitatFormativa implements Serializable {
     @ManyToOne
     @JoinColumn(name = "Modulo_UF")
     private Modul modulUF;
+    
+    @OneToMany(mappedBy="unitatFormativa")
+    private Matricula matricula;
      
     public UnitatFormativa() {
     }

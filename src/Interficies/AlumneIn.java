@@ -13,6 +13,6 @@ import model.Alumne;
  */
 public interface AlumneIn extends SuperGenerica<Alumne>{
     
-    public void buscarPorNombre();
+    public Alumne buscarPorNombre(String nom);
     
 }
