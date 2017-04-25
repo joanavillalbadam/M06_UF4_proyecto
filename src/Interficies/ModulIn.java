@@ -5,10 +5,12 @@
  */
 package Interficies;
 
+import model.Modul;
+
 /**
  *
  * @author ALUMNEDAM
  */
-public interface ModulIn extends SuperGenerica{
-        public void buscarModul();
+public interface ModulIn extends SuperGenerica<Modul>{
+        public void buscarModul(String nomModul);
 }

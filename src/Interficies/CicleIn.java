@@ -5,11 +5,13 @@
  */
 package Interficies;
 
+import model.Cicle;
+
 /**
  *
  * @author ALUMNEDAM
  */
-public interface CicleIn extends SuperGenerica{
+public interface CicleIn extends SuperGenerica<Cicle>{
     
-    public void buscarCiclo();
+    public void buscarCiclo(String nomCicle);
 }

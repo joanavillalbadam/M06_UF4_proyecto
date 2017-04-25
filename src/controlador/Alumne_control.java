@@ -7,6 +7,7 @@ package controlador;
 
 import Interficies.AlumneIn;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 import model.Alumne;
 
@@ -35,19 +36,85 @@ public class Alumne_control implements AlumneIn{
     }
 
     @Override
-    public void Afegir(Alumne t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void Afegir(Alumne a) {
+    
+        // Recupera el entity manager
+        Controlador.Controlador oem = new Controlador.Controlador();
+        EntityManager em = oem.getEntityManager();
+        System.out.println("Esnto en insertar");
+        // El persistim a la base de dades
+        //em.getTransaction().begin();
+        EntityTransaction etx = em.getTransaction();
+
+        System.out.println("begin");
+        etx.begin();
+
+        System.out.println("persist");
+        em.persist(a);
+
+        System.out.println("commit");
+        //em.getTransaction().commit();
+        etx.commit();
+
+        System.out.println("close");
+        em.close();
+    
+    }
+    
+    @Override
+    public void modificar(Alumne a) {
+    
+        // Recupera el entity manager
+        Controlador.Controlador oem = new Controlador.Controlador();
+        EntityManager em = oem.getEntityManager();
+
+        // El persistim a la base de dades
+        //em.getTransaction().begin();
+        EntityTransaction etx = em.getTransaction();
+
+        System.out.println("begin");
+        etx.begin();
+
+        System.out.println("merge");
+        em.merge(a);
+
+        System.out.println("commit");
+        //em.getTransaction().commit();
+        etx.commit();
+
+        System.out.println("close");
+        em.close();
+    
     }
 
     @Override
-    public void eliminar(Alumne t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void eliminar(Alumne a) {
+    
+        // Recupera el entity manager
+        Controlador.Controlador oem = new Controlador.Controlador();
+        EntityManager em = oem.getEntityManager();
+
+        // El persistim a la base de dades
+        //em.getTransaction().begin();
+      EntityTransaction etx = em.getTransaction();
+
+        System.out.println("begin");
+        etx.begin();
+
+        System.out.println("remove");
+        em.remove(em.contains(a) ? a : em.merge(a));
+
+        System.out.println("commit");
+        //em.getTransaction().commit();
+        etx.commit();
+
+        System.out.println("close");
+        em.close();
+        
+    
     }
 
-    @Override
-    public void modificar(Alumne t, Alumne nuevoT) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 
    
     

@@ -12,7 +12,8 @@ package Interficies;
 public interface SuperGenerica<T>{
     
     public void Afegir(T t);
+    public void modificar(T t);
     public void eliminar(T t);
-    public void modificar(T t, T nuevoT);
+    
     
 }

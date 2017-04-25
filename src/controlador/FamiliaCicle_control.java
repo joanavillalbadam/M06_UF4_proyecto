@@ -6,6 +6,7 @@
 package controlador;
 
 import Interficies.FamiliaIn;
+import model.FamiliaCicle;
 
 /**
  *
@@ -14,23 +15,26 @@ import Interficies.FamiliaIn;
 public class FamiliaCicle_control implements FamiliaIn{
 
     @Override
-    public void buscarFamilia() {
+    public void buscarFamilia(String nomFamilia) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void Afegir(Object t) {
+    public void Afegir(FamiliaCicle t) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void eliminar(Object t) {
+    public void modificar(FamiliaCicle t) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void modificar(Object t, Object nuevoT) {
+    public void eliminar(FamiliaCicle t) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+
+   
     
 }

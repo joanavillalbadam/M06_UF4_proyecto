@@ -5,10 +5,12 @@
  */
 package Interficies;
 
+import model.Matricula;
+
 /**
  *
  * @author ALUMNEDAM
  */
-public interface MatriculaIn extends SuperGenerica{
-        public void buscarMatricula();
+public interface MatriculaIn extends SuperGenerica<Matricula>{
+        public void buscarMatricula(Long idMatricula);
 }

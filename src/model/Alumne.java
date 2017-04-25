@@ -30,11 +30,11 @@ public class Alumne implements Serializable {
     
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-   
     @Column(name = "nif", length = 9, nullable = false, unique = true)
     private String nif;
+   
+    
+    
 
     @Column(name = "nombre_alum", nullable = false)
     private String nombreAlum;
@@ -51,8 +51,7 @@ public class Alumne implements Serializable {
     public Alumne() {
     }
 
-    public Alumne(Long id, String nif, String nombreAlum, String cognomAlum, String correo, int telefono) {
-        this.id = id;
+    public Alumne(String nif, String nombreAlum, String cognomAlum, String correo, int telefono) {
         this.nif = nif;
         this.nombreAlum = nombreAlum;
         this.cognomAlum = cognomAlum;
@@ -60,13 +59,7 @@ public class Alumne implements Serializable {
         this.telefono = telefono;
     }
 
-    public String getNif() {
-        return nif;
-    }
-
-    public void setNif(String nif) {
-        this.nif = nif;
-    }
+    
 
     public String getNombreAlum() {
         return nombreAlum;
@@ -101,29 +94,29 @@ public class Alumne implements Serializable {
     }
     
     
-    public Long getId() {
-        return id;
+    public String getNif() {
+        return nif;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setNif(String nif) {
+        this.nif = nif;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (nif != null ? nif.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
+        // TODO: Warning - this method won't work in the case the nif fields are not set
         if (!(object instanceof Alumne)) {
             return false;
         }
         Alumne other = (Alumne) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.nif == null && other.nif != null) || (this.nif != null && !this.nif.equals(other.nif))) {
             return false;
         }
         return true;
@@ -131,7 +124,9 @@ public class Alumne implements Serializable {
 
     @Override
     public String toString() {
-        return "Alummne{" + "id=" + id + ", nif=" + nif + ", nombreAlum=" + nombreAlum + ", cognomAlum=" + cognomAlum + ", correo=" + correo + ", telefono=" + telefono + '}';
+        return "Alumne{" + "nif=" + nif + ", nombreAlum=" + nombreAlum + ", cognomAlum=" + cognomAlum + ", correo=" + correo + ", telefono=" + telefono + '}';
     }
+
+    
 
 }

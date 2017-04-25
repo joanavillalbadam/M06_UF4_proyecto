@@ -6,6 +6,7 @@
 package controlador;
 
 import Interficies.ModulIn;
+import model.Modul;
 
 /**
  *
@@ -14,23 +15,27 @@ import Interficies.ModulIn;
 public class Modul_control implements ModulIn{
 
     @Override
-    public void buscarModul() {
+    public void buscarModul(String nomModul) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void Afegir(Object t) {
+    public void Afegir(Modul t) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void eliminar(Object t) {
+    public void modificar(Modul t) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void modificar(Object t, Object nuevoT) {
+    public void eliminar(Modul t) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+   
+
+   
     
 }

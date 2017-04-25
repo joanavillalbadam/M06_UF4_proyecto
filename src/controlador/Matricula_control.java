@@ -6,6 +6,7 @@
 package controlador;
 
 import Interficies.MatriculaIn;
+import model.Matricula;
 
 /**
  *
@@ -14,23 +15,27 @@ import Interficies.MatriculaIn;
 public class Matricula_control implements MatriculaIn{
 
     @Override
-    public void buscarMatricula() {
+    public void buscarMatricula(Long idMatricula) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void Afegir(Object t) {
+    public void Afegir(Matricula t) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void eliminar(Object t) {
+    public void modificar(Matricula t) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void modificar(Object t, Object nuevoT) {
+    public void eliminar(Matricula t) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+   
+
+    
     
 }

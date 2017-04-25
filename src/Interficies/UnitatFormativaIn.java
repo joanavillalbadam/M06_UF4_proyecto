@@ -5,10 +5,12 @@
  */
 package Interficies;
 
+import model.UnitatFormativa;
+
 /**
  *
  * @author ALUMNEDAM
  */
-public interface UnitatFormativaIn extends SuperGenerica{
-        public void buscarUF();
+public interface UnitatFormativaIn extends SuperGenerica<UnitatFormativa>{
+        public void buscarUF(String nomUnitat);
 }

@@ -6,6 +6,7 @@
 package controlador;
 
 import Interficies.CursIn;
+import model.Curs;
 
 /**
  *
@@ -14,23 +15,25 @@ import Interficies.CursIn;
 public class Curs_control implements CursIn{
 
     @Override
-    public void buscarCurso() {
+    public void buscarCurso(Long idCurs) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void Afegir(Object t) {
+    public void Afegir(Curs t) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void eliminar(Object t) {
+    public void modificar(Curs t) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void modificar(Object t, Object nuevoT) {
+    public void eliminar(Curs t) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+   
     
 }

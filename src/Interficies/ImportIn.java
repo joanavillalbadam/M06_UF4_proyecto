@@ -5,10 +5,12 @@
  */
 package Interficies;
 
+import model.Import;
+
 /**
  *
  * @author ALUMNEDAM
  */
-public interface ImportIn extends SuperGenerica{
-        public void buscarImporte();
+public interface ImportIn extends SuperGenerica<Import>{
+        public void buscarImporte(Long idImport);
 }

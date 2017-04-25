@@ -5,11 +5,13 @@
  */
 package Interficies;
 
+import model.FamiliaCicle;
+
 /**
  *
  * @author ALUMNEDAM
  */
-public interface FamiliaIn extends SuperGenerica{
-        public void buscarFamilia();
+public interface FamiliaIn extends SuperGenerica<FamiliaCicle>{
+        public void buscarFamilia(String nomFamilia);
     
 }

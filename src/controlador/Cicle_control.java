@@ -6,6 +6,9 @@
 package controlador;
 
 import Interficies.CicleIn;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+import model.Cicle;
 
 /**
  *
@@ -14,23 +17,26 @@ import Interficies.CicleIn;
 public class Cicle_control implements CicleIn{
 
     @Override
-    public void buscarCiclo() {
+    public void buscarCiclo(String nomCicle) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void Afegir(Object t) {
+    public void Afegir(Cicle t) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void eliminar(Object t) {
+    public void modificar(Cicle t) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void modificar(Object t, Object nuevoT) {
+    public void eliminar(Cicle t) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+
+    
     
 }
