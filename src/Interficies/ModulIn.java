@@ -11,6 +11,7 @@ import model.Modul;
  *
  * @author ALUMNEDAM
  */
-public interface ModulIn extends SuperGenerica<Modul>{
-        public void buscarModul(String nomModul);
+public interface ModulIn extends SuperGenerica<Modul> {
+
+    public Modul buscarModul(String nomModul);
 }

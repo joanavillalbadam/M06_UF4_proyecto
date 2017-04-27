@@ -11,6 +11,7 @@ import model.UnitatFormativa;
  *
  * @author ALUMNEDAM
  */
-public interface UnitatFormativaIn extends SuperGenerica<UnitatFormativa>{
-        public void buscarUF(String nomUnitat);
+public interface UnitatFormativaIn extends SuperGenerica<UnitatFormativa> {
+
+    public UnitatFormativa buscarUF(String nomUnitat);
 }

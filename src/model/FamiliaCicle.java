@@ -13,13 +13,19 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  *
  * @author ALUMNEDAM
  */
 @Entity
+@NamedQueries({
+    @NamedQuery(name = Alumne.CONSULTA, query = "SELECT fam FROM FamiliaCicle fam WHERE fam.nombreFamilia=:nombre")})
+@Table(name = "M6UF4_FamiliaCicle")
 public class FamiliaCicle implements Serializable {
 
     private static final long serialVersionUID = 1L;

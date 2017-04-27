@@ -44,7 +44,8 @@ public class UnitatFormativa implements Serializable {
     @JoinColumn(name = "Modulo_UF")
     private Modul modulUF;
     
-    @OneToMany(mappedBy="unitatFormativa")
+    @ManyToOne
+    @JoinColumn(name = "Matricula_UF")
     private Matricula matricula;
      
     public UnitatFormativa() {

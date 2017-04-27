@@ -15,16 +15,24 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  *
  * @author ALUMNEDAM
  */
 @Entity
+@NamedQueries({
+    @NamedQuery(name = Alumne.CONSULTA, query = "SELECT curs FROM Curs curs WHERE curs.idCurso=:id")})
+@Table(name = "M6UF4_Curs")
 public class Curs implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
+    public static final String CONSULTA = "idCurs";
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idCurso;

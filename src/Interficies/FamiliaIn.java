@@ -11,7 +11,8 @@ import model.FamiliaCicle;
  *
  * @author ALUMNEDAM
  */
-public interface FamiliaIn extends SuperGenerica<FamiliaCicle>{
-        public void buscarFamilia(String nomFamilia);
-    
+public interface FamiliaIn extends SuperGenerica<FamiliaCicle> {
+
+    public FamiliaCicle buscarFamilia(String nomFamilia);
+
 }

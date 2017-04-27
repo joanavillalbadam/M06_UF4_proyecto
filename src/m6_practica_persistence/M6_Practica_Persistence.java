@@ -5,6 +5,9 @@
  */
 package m6_practica_persistence;
 
+import controlador.*;
+import model.Alumne;
+
 /**
  *
  * @author ALUMNEDAM
@@ -26,6 +29,9 @@ public class M6_Practica_Persistence {
          DROP TABLE M6UF2_Asseguradora; 
          */
         
+        Alumne_control ac = new Alumne_control();
+        Alumne al = new Alumne("77128797E","joana","villalba","joana@gmail.com",671576281);
+        ac.Afegir(al);
         
         
     }

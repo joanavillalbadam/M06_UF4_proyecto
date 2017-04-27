@@ -16,6 +16,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 /**
@@ -34,9 +35,8 @@ public class Matricula implements Serializable {
     private Alumne alumne;
     private Calendar dataMatricula;
     
-    @ManyToOne
-    @JoinColumn(name = "matricula_uf")
-    List<UnitatFormativa> unitatFormativa = new ArrayList<>();
+    @OneToMany(mappedBy="matricula")
+    List<UnitatFormativa> unitatFormativa;
     
     @OneToOne(mappedBy="matricula")
     private Import importe;

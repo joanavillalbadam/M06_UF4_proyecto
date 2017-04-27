@@ -39,7 +39,7 @@ public class Alumne_control implements AlumneIn{
     public void Afegir(Alumne a) {
     
         // Recupera el entity manager
-        Controlador.Controlador oem = new Controlador.Controlador();
+        controlador.Controlador oem = new controlador.Controlador();
         EntityManager em = oem.getEntityManager();
         System.out.println("Esnto en insertar");
         // El persistim a la base de dades
@@ -65,7 +65,7 @@ public class Alumne_control implements AlumneIn{
     public void modificar(Alumne a) {
     
         // Recupera el entity manager
-        Controlador.Controlador oem = new Controlador.Controlador();
+        controlador.Controlador oem = new controlador.Controlador();
         EntityManager em = oem.getEntityManager();
 
         // El persistim a la base de dades
@@ -91,7 +91,7 @@ public class Alumne_control implements AlumneIn{
     public void eliminar(Alumne a) {
     
         // Recupera el entity manager
-        Controlador.Controlador oem = new Controlador.Controlador();
+        controlador.Controlador oem = new controlador.Controlador();
         EntityManager em = oem.getEntityManager();
 
         // El persistim a la base de dades

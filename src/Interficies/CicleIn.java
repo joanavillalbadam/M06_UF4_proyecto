@@ -13,5 +13,5 @@ import model.Cicle;
  */
 public interface CicleIn extends SuperGenerica<Cicle>{
     
-    public void buscarCiclo(String nomCicle);
+    public Cicle buscarCiclo(String nomCicle);
 }

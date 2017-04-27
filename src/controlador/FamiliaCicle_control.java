@@ -6,6 +6,10 @@
 package controlador;
 
 import Interficies.FamiliaIn;
+import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 import model.FamiliaCicle;
 
 /**
@@ -15,23 +19,114 @@ import model.FamiliaCicle;
 public class FamiliaCicle_control implements FamiliaIn{
 
     @Override
-    public void buscarFamilia(String nomFamilia) {
+    public FamiliaCicle buscarFamilia(String nomFamilia) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void Afegir(FamiliaCicle t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void Afegir(FamiliaCicle f) {
+    
+        // Recupera el entity manager
+        Controlador oem = new Controlador();
+        EntityManager em = oem.getEntityManager();
+
+        // El persistim a la base de dades
+        //em.getTransaction().begin();
+        EntityTransaction etx = em.getTransaction();
+
+        System.out.println("begin");
+        etx.begin();
+
+        System.out.println("persist");
+        em.persist(f);
+
+        System.out.println("commit");
+        //em.getTransaction().commit();
+        etx.commit();
+
+        System.out.println("close");
+        em.close();
+    
     }
 
     @Override
-    public void modificar(FamiliaCicle t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void modificar(FamiliaCicle f) {
+    
+        
+        // Recupera el entity manager
+        Controlador oem = new Controlador();
+        EntityManager em = oem.getEntityManager();
+
+        // El persistim a la base de dades
+        //em.getTransaction().begin();
+        EntityTransaction etx = em.getTransaction();
+
+        System.out.println("begin");
+        etx.begin();
+
+        System.out.println("merge");
+        em.merge(f);
+
+        System.out.println("commit");
+        //em.getTransaction().commit();
+        etx.commit();
+
+        System.out.println("close");
+        em.close();
+    
     }
 
     @Override
-    public void eliminar(FamiliaCicle t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void eliminar(FamiliaCicle f) {
+        
+        
+         // Recupera el entity manager
+        Controlador oem = new Controlador();
+        EntityManager em = oem.getEntityManager();
+
+        // El persistim a la base de dades
+        //em.getTransaction().begin();
+        EntityTransaction etx = em.getTransaction();
+
+        System.out.println("begin");
+        etx.begin();
+
+        System.out.println("remove");
+        em.remove(em.contains(f) ? f : em.merge(f));
+
+        System.out.println("commit");
+        //em.getTransaction().commit();
+        etx.commit();
+
+        System.out.println("close");
+        em.close();
+    
+        
+    }
+    
+    public void Consulta() {
+        // Recupera el entity manager
+        EntityManager em = new Controlador().getEntityManager();
+
+        System.out.println("Consulta");
+        //List<Persona> lista = (List<Persona>) em.createQuery("FROM Persona").getResultList();
+        Query q = em.createQuery("FROM FamiliaCicle");
+        List<FamiliaCicle> lista = (List<FamiliaCicle>) q.getResultList();
+        imprimirLista(lista);
+
+        System.out.println("close");
+        em.close();
+    }
+    
+    public void imprimirLista(List<FamiliaCicle> lista) {
+        System.out.println("Numero: = " + lista.size());
+        for (int i = 0; i < lista.size(); i++) {
+            System.out.println(lista.get(i));
+        }
+    }
+
+    public void imprimirPersona(FamiliaCicle fam) {
+        System.out.println(fam);
     }
 
 

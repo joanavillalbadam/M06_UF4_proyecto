@@ -11,6 +11,7 @@ import model.Matricula;
  *
  * @author ALUMNEDAM
  */
-public interface MatriculaIn extends SuperGenerica<Matricula>{
-        public void buscarMatricula(Long idMatricula);
+public interface MatriculaIn extends SuperGenerica<Matricula> {
+
+    public Matricula buscarMatricula(Long idMatricula);
 }

@@ -11,6 +11,7 @@ import model.Import;
  *
  * @author ALUMNEDAM
  */
-public interface ImportIn extends SuperGenerica<Import>{
-        public void buscarImporte(Long idImport);
+public interface ImportIn extends SuperGenerica<Import> {
+
+    public Import buscarImporte(Long idImport);
 }

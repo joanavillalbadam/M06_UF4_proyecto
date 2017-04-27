@@ -15,15 +15,24 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  *
  * @author ALUMNEDAM
  */
+
 @Entity
+@NamedQueries({
+    @NamedQuery(name = Alumne.CONSULTA, query = "SELECT c FROM Cicle c WHERE c.nombreCicle=:nombre")})
+@Table(name = "M6UF4_Cicle")
 public class Cicle implements Serializable {
 
+    public static final String CONSULTA = "nomCicle";
+    
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
