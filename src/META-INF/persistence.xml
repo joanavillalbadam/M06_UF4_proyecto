@@ -5,7 +5,7 @@
     <class>model.Client</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@192.168.180.10:1521:INSLAFERRERI"/>
-      <property name="javax.persistence.jdbc.user" value="TAMOOR"/>
+      <property name="javax.persistence.jdbc.user" value="JOANA"/>
       <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
       <property name="javax.persistence.jdbc.password" value="1234"/>
       <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>

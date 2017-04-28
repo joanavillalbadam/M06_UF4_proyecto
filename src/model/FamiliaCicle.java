@@ -10,8 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -24,13 +22,16 @@ import javax.persistence.Table;
  */
 @Entity
 @NamedQueries({
-    @NamedQuery(name = Alumne.CONSULTA, query = "SELECT fam FROM FamiliaCicle fam WHERE fam.nombreFamilia=:nombre")})
+    @NamedQuery(name = FamiliaCicle.CONSULTA, query = "SELECT fam FROM FamiliaCicle fam WHERE fam.nombreFamilia=:nombre")})
 @Table(name = "M6UF4_FamiliaCicle")
 public class FamiliaCicle implements Serializable {
 
+    
+    public static final String CONSULTA = "nomFamilia";
+    
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_Familia", nullable = false, unique = true)
     private Long idFamilia;
     
     @Column(name = "nombre_Familia", nullable = false)
@@ -38,8 +39,8 @@ public class FamiliaCicle implements Serializable {
     
     
     //TODO: hacer la referencia a la clase cicle
-    @OneToMany(mappedBy="CicleF")
-    List<Cicle> cicle = new ArrayList<>();
+    @OneToMany(mappedBy="cicleF")
+    List<Cicle> cicle;
 
     public FamiliaCicle() {
     }
@@ -47,6 +48,7 @@ public class FamiliaCicle implements Serializable {
     public FamiliaCicle(Long idFamilia, String nombreFamilia) {
         this.idFamilia = idFamilia;
         this.nombreFamilia = nombreFamilia;
+        this.cicle = new ArrayList<>();
     }
 
     public String getNombreFamilia() {
@@ -97,5 +99,7 @@ public class FamiliaCicle implements Serializable {
     public String toString() {
         return "FamiliaCicle{" + "idFamilia=" + idFamilia + ", nombreFamilia=" + nombreFamilia + ", cicle=" + cicle + '}';
     }
+
+    
     
 }

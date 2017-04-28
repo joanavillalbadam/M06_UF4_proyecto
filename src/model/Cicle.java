@@ -27,15 +27,16 @@ import javax.persistence.Table;
 
 @Entity
 @NamedQueries({
-    @NamedQuery(name = Alumne.CONSULTA, query = "SELECT c FROM Cicle c WHERE c.nombreCicle=:nombre")})
+    @NamedQuery(name = Cicle.CONSULTA, query = "SELECT c FROM Cicle c WHERE c.nombreCicle=:nombre")})
 @Table(name = "M6UF4_Cicle")
+
 public class Cicle implements Serializable {
 
     public static final String CONSULTA = "nomCicle";
     
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_Cicle", nullable = false, unique = true)
     private Long idCicle;
 
     @Column(name = "nombre_Cicle", nullable = false)
@@ -46,13 +47,13 @@ public class Cicle implements Serializable {
     
     @ManyToOne
     @JoinColumn(name = "familia_cicle")
-    private FamiliaCicle CicleF;
+    private FamiliaCicle cicleF;
     
     @OneToMany(mappedBy="cicleM")
-    List<Modul> listaModul = new ArrayList<>();
+    List<Modul> listaModul;
     
     @OneToMany(mappedBy="cicleC")
-    List<Curs> listaCurs = new ArrayList<>();
+    List<Curs> listaCurs;
 
     public Cicle() {
     }
@@ -61,6 +62,17 @@ public class Cicle implements Serializable {
         this.idCicle = idCicle;
         this.nombreCicle = nombreCicle;
         this.grau = grau;
+        this.listaCurs = new ArrayList<>();
+        this.listaModul = new ArrayList<>();
+        
+    }
+
+    public FamiliaCicle getCicleF() {
+        return cicleF;
+    }
+
+    public void setCicleF(FamiliaCicle cicleF) {
+        this.cicleF = cicleF;
     }
 
     public String getNombreCicle() {
@@ -125,7 +137,8 @@ public class Cicle implements Serializable {
 
     @Override
     public String toString() {
-        return "Cicle{" + "idCicle=" + idCicle + ", nombreCicle=" + nombreCicle + ", grau=" + grau + ", listaModul=" + listaModul + ", listaCurs=" + listaCurs + '}';
+        return "Cicle{" + "idCicle=" + idCicle + ", nombreCicle=" + nombreCicle + ", grau=" + grau + ", cicleF=" + cicleF + ", listaModul=" + listaModul + ", listaCurs=" + listaCurs + '}';
     }
+
     
 }

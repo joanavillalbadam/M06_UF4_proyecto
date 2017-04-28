@@ -30,9 +30,13 @@ public class M6_Practica_Persistence {
          */
         
         Alumne_control ac = new Alumne_control();
-        Alumne al = new Alumne("77128797E","joana","villalba","joana@gmail.com",671576281);
+        Alumne al = new Alumne("71238085E","joanaa","villalbaa","joana@gmail.com",671576288);
         ac.Afegir(al);
         
+        
+        ac.imprimirPersona(ac.buscarPorNombre("joanaa"));
+        ac.modificar(al);
+       // ac.eliminar(al);
         
     }
     

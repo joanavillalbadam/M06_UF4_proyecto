@@ -26,15 +26,16 @@ import javax.persistence.Table;
  */
 @Entity
 @NamedQueries({
-    @NamedQuery(name = Alumne.CONSULTA, query = "SELECT curs FROM Curs curs WHERE curs.idCurso=:id")})
+    @NamedQuery(name = Curs.CONSULTA, query = "SELECT curs FROM Curs curs WHERE curs.idCurso=:id")})
 @Table(name = "M6UF4_Curs")
+
 public class Curs implements Serializable {
 
     private static final long serialVersionUID = 1L;
     
     public static final String CONSULTA = "idCurs";
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_Curs", nullable = false, unique = true)
     private Long idCurso;
     
     @Column(name = "curso")
@@ -45,7 +46,7 @@ public class Curs implements Serializable {
     private Cicle cicleC;
     
     @OneToMany(mappedBy="cursUF")
-    List<UnitatFormativa> listaUnitatCurs = new ArrayList<>();
+    List<UnitatFormativa> listaUnitatCurs;
 
     public Curs() {
     }
@@ -53,6 +54,15 @@ public class Curs implements Serializable {
     public Curs(Long idCurso, String primSegun) {
         this.idCurso = idCurso;
         this.primSegun = primSegun;
+        this.listaUnitatCurs = new ArrayList<>();
+    }
+
+    public Cicle getCicleC() {
+        return cicleC;
+    }
+
+    public void setCicleC(Cicle cicleC) {
+        this.cicleC = cicleC;
     }
 
     public String getPrimSegun() {
@@ -103,7 +113,9 @@ public class Curs implements Serializable {
 
     @Override
     public String toString() {
-        return "Curs{" + "idCurso=" + idCurso + ", primSegun=" + primSegun + ", listaUnitatCurs=" + listaUnitatCurs + '}';
+        return "Curs{" + "idCurso=" + idCurso + ", primSegun=" + primSegun + ", cicleC=" + cicleC + ", listaUnitatCurs=" + listaUnitatCurs + '}';
     }
+
+    
 
 }

@@ -6,6 +6,7 @@
 package controlador;
 
 import Interficies.AlumneIn;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
@@ -39,9 +40,9 @@ public class Alumne_control implements AlumneIn{
     public void Afegir(Alumne a) {
     
         // Recupera el entity manager
-        controlador.Controlador oem = new controlador.Controlador();
+        Controlador oem = new Controlador();
         EntityManager em = oem.getEntityManager();
-        System.out.println("Esnto en insertar");
+
         // El persistim a la base de dades
         //em.getTransaction().begin();
         EntityTransaction etx = em.getTransaction();
@@ -112,6 +113,31 @@ public class Alumne_control implements AlumneIn{
         em.close();
         
     
+    }
+    
+    public void Consulta() {
+        // Recupera el entity manager
+        EntityManager em = new Controlador().getEntityManager();
+
+        System.out.println("Consulta");
+        //List<Persona> lista = (List<Persona>) em.createQuery("FROM Persona").getResultList();
+        Query q = em.createQuery("FROM UnitatFormativa");
+        List<Alumne> lista = (List<Alumne>) q.getResultList();
+        imprimirLista(lista);
+
+        System.out.println("close");
+        em.close();
+    }
+    
+    public void imprimirLista(List<Alumne> lista) {
+        System.out.println("Numero: = " + lista.size());
+        for (int i = 0; i < lista.size(); i++) {
+            System.out.println(lista.get(i));
+        }
+    }
+
+    public void imprimirPersona(Alumne alumne) {
+        System.out.println(alumne);
     }
 
     

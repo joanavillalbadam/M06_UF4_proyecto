@@ -16,35 +16,48 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 /**
  *
  * @author ALUMNEDAM
  */
 @Entity
+@NamedQueries({
+    @NamedQuery(name = Matricula.CONSULTA, query = "SELECT m FROM Matricula m WHERE m.idMatricula=:id")})
+@Table(name = "M6UF4_Matricula")
 public class Matricula implements Serializable {
+
+    public static final String CONSULTA = "idMAtricula";
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_Matricula", nullable = false, unique = true)
     private Long idMatricula;
 
-    
+    @Column(name = "alumne", nullable = false)
     private Alumne alumne;
+    
+    @Column(name = "dataMatricula", nullable = false)
     private Calendar dataMatricula;
-    
-    @OneToMany(mappedBy="matricula")
+
+    @OneToMany(mappedBy = "matricula")
     List<UnitatFormativa> unitatFormativa;
-    
-    @OneToOne(mappedBy="matricula")
+
+    @OneToOne(mappedBy = "matricula")
     private Import importe;
-    
-    
+
     //Si es true sera cursoCompleto y si es false seran uf sueltas
-    private boolean modalitat; 
+    @Column(name = "modalitat", nullable = false)
+    private boolean modalitat;
+    
+    
     //true 50 false 100
+    @Column(name = "descuentos", nullable = false)
     private boolean descuentos;
 
     public Matricula() {
@@ -56,6 +69,15 @@ public class Matricula implements Serializable {
         this.dataMatricula = dataMatricula;
         this.modalitat = modalitat;
         this.descuentos = descuentos;
+        this.unitatFormativa = new ArrayList<>();
+    }
+
+    public Import getImporte() {
+        return importe;
+    }
+
+    public void setImporte(Import importe) {
+        this.importe = importe;
     }
 
     public Alumne getAlumne() {
@@ -82,8 +104,6 @@ public class Matricula implements Serializable {
         this.unitatFormativa = unitatFormativa;
     }
 
-
-
     public boolean isModalitat() {
         return modalitat;
     }
@@ -99,8 +119,7 @@ public class Matricula implements Serializable {
     public void setDescuentos(boolean descuentos) {
         this.descuentos = descuentos;
     }
-     
-      
+
     public Long getIdMatricula() {
         return idMatricula;
     }
@@ -131,11 +150,9 @@ public class Matricula implements Serializable {
 
     @Override
     public String toString() {
-        return "Matricula{" + "idMatricula=" + idMatricula + ", alumne=" + alumne + ", dataMatricula=" + dataMatricula + ", unitatFormativa=" + unitatFormativa + ", modalitat=" + modalitat + ", descuentos=" + descuentos + '}';
+        return "Matricula{" + "idMatricula=" + idMatricula + ", alumne=" + alumne + ", dataMatricula=" + dataMatricula + ", unitatFormativa=" + unitatFormativa + ", importe=" + importe + ", modalitat=" + modalitat + ", descuentos=" + descuentos + '}';
     }
 
- 
-
-
     
+
 }

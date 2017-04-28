@@ -15,18 +15,26 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  *
  * @author ALUMNEDAM
  */
 @Entity
+@NamedQueries({
+    @NamedQuery(name = UnitatFormativa.CONSULTA, query = "SELECT uf FROM UnitatFormativa uf WHERE uf.nomUnitat=:nombre")})
+@Table(name = "M6UF4_Modul")
 public class UnitatFormativa implements Serializable {
+    
+    public static final String CONSULTA = "nomUnitat";
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_UF", nullable = false, unique = true)
     private Long idUnitat;
       
     @Column(name = "nomUnitat")
@@ -55,6 +63,30 @@ public class UnitatFormativa implements Serializable {
         this.idUnitat = idUnitat;
         this.nomUnitat = nomUnitat;
         this.horas = horas;
+    }
+
+    public Curs getCursUF() {
+        return cursUF;
+    }
+
+    public void setCursUF(Curs cursUF) {
+        this.cursUF = cursUF;
+    }
+
+    public Modul getModulUF() {
+        return modulUF;
+    }
+
+    public void setModulUF(Modul modulUF) {
+        this.modulUF = modulUF;
+    }
+
+    public Matricula getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(Matricula matricula) {
+        this.matricula = matricula;
     }
 
     public String getNomUnitat() {
@@ -103,8 +135,10 @@ public class UnitatFormativa implements Serializable {
 
     @Override
     public String toString() {
-        return "UnitatFormativa{" + "idUnitat=" + idUnitat + ", nomUnitat=" + nomUnitat + ", horas=" + horas + '}';
+        return "UnitatFormativa{" + "idUnitat=" + idUnitat + ", nomUnitat=" + nomUnitat + ", horas=" + horas + ", cursUF=" + cursUF + ", modulUF=" + modulUF + ", matricula=" + matricula + '}';
     }
+
+    
 
     
 }

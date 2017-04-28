@@ -11,30 +11,22 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 import model.Curs;
+import model.Import;
 
 /**
  *
  * @author ALUMNEDAM
  */
-public class Curs_control implements CursIn{
+public class Import_control implements CursIn {
 
     @Override
-    public Curs buscarCurso(Long idCurs) {
-         // Recupera el entity manager
-        EntityManager em = new Controlador().getEntityManager();
-
-
-        Curs curs = (Curs) em.find(Curs.class, idCurs);
-
-        System.out.println("close");
-        em.close();
-
-        return curs;
+    public Curs buscarCurso(Long idImport) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void Afegir(Curs c) {
-    
+
         // Recupera el entity manager
         Controlador oem = new Controlador();
         EntityManager em = oem.getEntityManager();
@@ -55,13 +47,11 @@ public class Curs_control implements CursIn{
 
         System.out.println("close");
         em.close();
-    
+
     }
 
     @Override
     public void modificar(Curs c) {
-    
-        
         // Recupera el entity manager
         Controlador oem = new Controlador();
         EntityManager em = oem.getEntityManager();
@@ -82,14 +72,11 @@ public class Curs_control implements CursIn{
 
         System.out.println("close");
         em.close();
-    
     }
 
     @Override
     public void eliminar(Curs c) {
-    
-        
-         // Recupera el entity manager
+        // Recupera el entity manager
         Controlador oem = new Controlador();
         EntityManager em = oem.getEntityManager();
 
@@ -109,9 +96,8 @@ public class Curs_control implements CursIn{
 
         System.out.println("close");
         em.close();
-    
     }
-    
+
     public void Consulta() {
         // Recupera el entity manager
         EntityManager em = new Controlador().getEntityManager();
@@ -119,24 +105,22 @@ public class Curs_control implements CursIn{
         System.out.println("Consulta");
         //List<Persona> lista = (List<Persona>) em.createQuery("FROM Persona").getResultList();
         Query q = em.createQuery("FROM Curs");
-        List<Curs> lista = (List<Curs>) q.getResultList();
+        List<Import> lista = (List<Import>) q.getResultList();
         imprimirLista(lista);
 
         System.out.println("close");
         em.close();
     }
-    
-    public void imprimirLista(List<Curs> lista) {
+
+    public void imprimirLista(List<Import> lista) {
         System.out.println("Numero: = " + lista.size());
         for (int i = 0; i < lista.size(); i++) {
             System.out.println(lista.get(i));
         }
     }
 
-    public void imprimirPersona(Curs c) {
+    public void imprimirPersona(Import c) {
         System.out.println(c);
     }
 
-   
-    
 }

@@ -15,18 +15,27 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  *
  * @author ALUMNEDAM
  */
 @Entity
+@NamedQueries({
+    @NamedQuery(name = Modul.CONSULTA, query = "SELECT m FROM Modul m WHERE m.nomModul=:nombre")})
+@Table(name = "M6UF4_Modul")
+
 public class Modul implements Serializable {
+    
+    public static final String CONSULTA = "nomModul";
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_Modul", nullable = false, unique = true)
     private Long idModul;
     
     @Column(name = "nomModul")
@@ -37,7 +46,7 @@ public class Modul implements Serializable {
     private Cicle cicleM;
     
     @OneToMany(mappedBy="modulUF")
-    List<UnitatFormativa> listaUnitatModul = new ArrayList<>();
+    List<UnitatFormativa> listaUnitatModul;
 
     public Modul() {
     }
@@ -45,6 +54,15 @@ public class Modul implements Serializable {
     public Modul(Long idModul, String nomModul) {
         this.idModul = idModul;
         this.nomModul = nomModul;
+        this.listaUnitatModul = new ArrayList<>();
+    }
+
+    public Cicle getCicleM() {
+        return cicleM;
+    }
+
+    public void setCicleM(Cicle cicleM) {
+        this.cicleM = cicleM;
     }
 
     public String getNomModul() {
@@ -94,7 +112,9 @@ public class Modul implements Serializable {
 
     @Override
     public String toString() {
-        return "Modul{" + "idModul=" + idModul + ", nomModul=" + nomModul + ", listaUnitatModul=" + listaUnitatModul + '}';
+        return "Modul{" + "idModul=" + idModul + ", nomModul=" + nomModul + ", cicleM=" + cicleM + ", listaUnitatModul=" + listaUnitatModul + '}';
     }
+
+    
 
 }

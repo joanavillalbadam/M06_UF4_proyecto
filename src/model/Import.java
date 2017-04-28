@@ -6,25 +6,36 @@
 package model;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 /**
  *
  * @author ALUMNEDAM
  */
 @Entity
+@NamedQueries({
+    @NamedQuery(name = Import.CONSULTA, query = "SELECT i FROM Import i WHERE i.idImport=:id")})
+@Table(name = "M6UF4_Import")
 public class Import implements Serializable {
 
+    
+    public static final String CONSULTA = "idImport";
+    
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_Import", nullable = false, unique = true)
     private Long idImport;
     
+    @Column(name = "import", nullable = false)
     private double importe;
     
     @OneToOne
@@ -89,5 +100,6 @@ public class Import implements Serializable {
     public String toString() {
         return "Import{" + "idImport=" + idImport + ", importe=" + importe + ", matricula=" + matricula + '}';
     }
+
     
 }
