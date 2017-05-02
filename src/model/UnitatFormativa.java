@@ -27,7 +27,7 @@ import javax.persistence.Table;
 @Entity
 @NamedQueries({
     @NamedQuery(name = UnitatFormativa.CONSULTA, query = "SELECT uf FROM UnitatFormativa uf WHERE uf.nomUnitat=:nombre")})
-@Table(name = "M6UF4_Modul")
+@Table(name = "M6UF4_UnitatFormativa")
 public class UnitatFormativa implements Serializable {
     
     public static final String CONSULTA = "nomUnitat";

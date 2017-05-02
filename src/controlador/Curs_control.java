@@ -133,7 +133,7 @@ public class Curs_control implements CursIn{
         }
     }
 
-    public void imprimirPersona(Curs c) {
+    public void imprimirCurs(Curs c) {
         System.out.println(c);
     }
 

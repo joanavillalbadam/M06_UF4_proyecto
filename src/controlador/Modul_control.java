@@ -127,7 +127,7 @@ public class Modul_control implements ModulIn{
         }
     }
 
-    public void imprimirPersona(Modul mod) {
+    public void imprimirModul(Modul mod) {
         System.out.println(mod);
     }
 

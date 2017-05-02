@@ -136,7 +136,7 @@ public class Alumne_control implements AlumneIn{
         }
     }
 
-    public void imprimirPersona(Alumne alumne) {
+    public void imprimirAlumne(Alumne alumne) {
         System.out.println(alumne);
     }
 

@@ -125,7 +125,7 @@ public class UnitatFormativa_control implements UnitatFormativaIn{
         }
     }
 
-    public void imprimirPersona(UnitatFormativa uf) {
+    public void imprimirUnitatFormativa(UnitatFormativa uf) {
         System.out.println(uf);
     }
 

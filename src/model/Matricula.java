@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -48,7 +49,9 @@ public class Matricula implements Serializable {
     @OneToMany(mappedBy = "matricula")
     List<UnitatFormativa> unitatFormativa;
 
-    @OneToOne(mappedBy = "matricula")
+    
+    @OneToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "import_matricula")
     private Import importe;
 
     //Si es true sera cursoCompleto y si es false seran uf sueltas

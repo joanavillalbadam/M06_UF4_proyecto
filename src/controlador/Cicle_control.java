@@ -141,7 +141,7 @@ public class Cicle_control implements CicleIn{
         }
     }
 
-    public void imprimirPersona(Cicle c) {
+    public void imprimirCicle(Cicle c) {
         System.out.println(c);
     }
 

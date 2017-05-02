@@ -125,7 +125,7 @@ public class FamiliaCicle_control implements FamiliaIn{
         }
     }
 
-    public void imprimirPersona(FamiliaCicle fam) {
+    public void imprimirFamiliaCicle(FamiliaCicle fam) {
         System.out.println(fam);
     }
 

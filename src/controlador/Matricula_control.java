@@ -125,7 +125,7 @@ public class Matricula_control implements MatriculaIn{
         }
     }
 
-    public void imprimirPersona(Matricula mat) {
+    public void imprimirMatricula(Matricula mat) {
         System.out.println(mat);
     }
    

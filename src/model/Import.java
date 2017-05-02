@@ -6,6 +6,7 @@
 package model;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -38,8 +39,7 @@ public class Import implements Serializable {
     @Column(name = "import", nullable = false)
     private double importe;
     
-    @OneToOne
-    @JoinColumn(name = "import_matricula")
+    @OneToOne(mappedBy = "importe")
     private Matricula matricula;
 
     public Import() {

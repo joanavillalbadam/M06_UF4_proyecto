@@ -6,6 +6,7 @@
 package controlador;
 
 import Interficies.CursIn;
+import Interficies.ImportIn;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -17,15 +18,15 @@ import model.Import;
  *
  * @author ALUMNEDAM
  */
-public class Import_control implements CursIn {
+public class Import_control implements ImportIn {
 
-    @Override
-    public Curs buscarCurso(Long idImport) {
+@Override
+    public Import buscarImporte(Long idImport) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void Afegir(Curs c) {
+    public void Afegir(Import imp) {
 
         // Recupera el entity manager
         Controlador oem = new Controlador();
@@ -39,7 +40,7 @@ public class Import_control implements CursIn {
         etx.begin();
 
         System.out.println("persist");
-        em.persist(c);
+        em.persist(imp);
 
         System.out.println("commit");
         //em.getTransaction().commit();
@@ -51,7 +52,7 @@ public class Import_control implements CursIn {
     }
 
     @Override
-    public void modificar(Curs c) {
+    public void modificar(Import imp) {
         // Recupera el entity manager
         Controlador oem = new Controlador();
         EntityManager em = oem.getEntityManager();
@@ -64,7 +65,7 @@ public class Import_control implements CursIn {
         etx.begin();
 
         System.out.println("merge");
-        em.merge(c);
+        em.merge(imp);
 
         System.out.println("commit");
         //em.getTransaction().commit();
@@ -75,7 +76,7 @@ public class Import_control implements CursIn {
     }
 
     @Override
-    public void eliminar(Curs c) {
+    public void eliminar(Import imp) {
         // Recupera el entity manager
         Controlador oem = new Controlador();
         EntityManager em = oem.getEntityManager();
@@ -88,7 +89,7 @@ public class Import_control implements CursIn {
         etx.begin();
 
         System.out.println("remove");
-        em.remove(em.contains(c) ? c : em.merge(c));
+        em.remove(em.contains(imp) ? imp : em.merge(imp));
 
         System.out.println("commit");
         //em.getTransaction().commit();
@@ -119,8 +120,10 @@ public class Import_control implements CursIn {
         }
     }
 
-    public void imprimirPersona(Import c) {
-        System.out.println(c);
+    public void imprimirImport(Import imp) {
+        System.out.println(imp);
     }
+
+    
 
 }
