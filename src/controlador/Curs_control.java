@@ -24,6 +24,7 @@ public class Curs_control implements CursIn{
         EntityManager em = new Controlador().getEntityManager();
 
 
+        System.out.println("Busqueda per id curs: ");
         Curs curs = (Curs) em.find(Curs.class, idCurs);
 
         System.out.println("close");

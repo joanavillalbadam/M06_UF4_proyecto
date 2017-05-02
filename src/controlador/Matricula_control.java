@@ -20,7 +20,18 @@ public class Matricula_control implements MatriculaIn{
 
     @Override
     public Matricula buscarMatricula(Long idMatricula) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+        // Recupera el entity manager
+        EntityManager em = new Controlador().getEntityManager();
+
+        System.out.println("Busqueda per id Matricula: ");
+        Matricula mat = (Matricula) em.find(Matricula.class, idMatricula);
+
+        System.out.println("close");
+        em.close();
+
+        return mat;
+    
     }
 
     @Override

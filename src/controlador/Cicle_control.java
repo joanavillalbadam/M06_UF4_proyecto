@@ -24,7 +24,7 @@ public class Cicle_control implements CicleIn{
         // Recupera el entity manager
         EntityManager em = new Controlador().getEntityManager();
 
-        System.out.println("busqueda");
+        System.out.println("Busqueda per nom Cicle: ");
         Query query = em.createNamedQuery(Cicle.CONSULTA,Cicle.class);
         query.setParameter("nombre", nomCicle);
         Cicle c = (Cicle) query.getSingleResult();

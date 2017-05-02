@@ -20,7 +20,20 @@ public class Modul_control implements ModulIn{
 
     @Override
     public Modul buscarModul(String nomModul) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+         // Recupera el entity manager
+        EntityManager em = new Controlador().getEntityManager();
+
+        System.out.println("Busqueda per nom Modul: ");
+        Query query = em.createNamedQuery(Modul.CONSULTA,Modul.class);
+        query.setParameter("nombre", nomModul);
+        Modul mod = (Modul) query.getSingleResult();
+
+        System.out.println("close");
+        em.close();
+
+        return mod;
+    
     }
 
     @Override

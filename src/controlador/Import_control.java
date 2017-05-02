@@ -22,7 +22,19 @@ public class Import_control implements ImportIn {
 
 @Override
     public Import buscarImporte(Long idImport) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+         // Recupera el entity manager
+        EntityManager em = new Controlador().getEntityManager();
+
+
+        System.out.println("Busqueda per id Import: ");
+        Import imp = (Import) em.find(Import.class, idImport);
+
+        System.out.println("close");
+        em.close();
+
+        return imp;
+    
     }
 
     @Override

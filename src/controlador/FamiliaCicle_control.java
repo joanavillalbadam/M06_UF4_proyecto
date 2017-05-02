@@ -20,7 +20,20 @@ public class FamiliaCicle_control implements FamiliaIn{
 
     @Override
     public FamiliaCicle buscarFamilia(String nomFamilia) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+        // Recupera el entity manager
+        EntityManager em = new Controlador().getEntityManager();
+
+        System.out.println("Busqueda per nom Familia Cicle: ");
+        Query query = em.createNamedQuery(FamiliaCicle.CONSULTA,FamiliaCicle.class);
+        query.setParameter("nombre", nomFamilia);
+        FamiliaCicle c = (FamiliaCicle) query.getSingleResult();
+
+        System.out.println("close");
+        em.close();
+
+        return c;
+    
     }
 
     @Override

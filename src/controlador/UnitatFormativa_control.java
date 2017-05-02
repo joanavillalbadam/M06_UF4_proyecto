@@ -20,7 +20,22 @@ public class UnitatFormativa_control implements UnitatFormativaIn{
 
     @Override
     public UnitatFormativa buscarUF(String nomUnitat) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+        
+        // Recupera el entity manager
+        EntityManager em = new Controlador().getEntityManager();
+
+        System.out.println("Busqueda per nom UF: ");
+        Query query = em.createNamedQuery(UnitatFormativa.CONSULTA,UnitatFormativa.class);
+        query.setParameter("nombre", nomUnitat);
+        UnitatFormativa uf = (UnitatFormativa) query.getSingleResult();
+
+        System.out.println("close");
+        em.close();
+
+        return uf;
+    
+    
     }
 
     @Override

@@ -24,7 +24,7 @@ public class Alumne_control implements AlumneIn{
         // Recupera el entity manager
         EntityManager em = new Controlador().getEntityManager();
 
-        System.out.println("busqueda");
+        System.out.println("Busqueda per nom Alumne: ");
         Query query = em.createNamedQuery(Alumne.CONSULTA,Alumne.class);
         query.setParameter("nombre", nom);
         Alumne c = (Alumne) query.getSingleResult();
