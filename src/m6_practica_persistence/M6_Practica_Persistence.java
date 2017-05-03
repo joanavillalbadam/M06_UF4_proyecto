@@ -80,14 +80,31 @@ public class M6_Practica_Persistence {
 //        ac.eliminar(al);
 
 
-        ac.Afegir(al);
-        c.Afegir(cicle);
-        cur.Afegir(curs);
-        fam.Afegir(f);
-        m.Afegir(mat);
-        i.Afegir(imp);
-        mo.Afegir(mod);
-        uff.Afegir(uf);
+// ________________________ INSERT _____________________________________________
+
+
+//        ac.Afegir(al);
+//        c.Afegir(cicle);
+//        cur.Afegir(curs);
+//        fam.Afegir(f);
+//        m.Afegir(mat);
+//        i.Afegir(imp);
+//        mo.Afegir(mod);
+//        uff.Afegir(uf);
+        
+// _____________________________________________________________________________
+        
+//        ac.imprimirAlumne(ac.buscarPorNombre("joanaa"));
+        c.imprimirCicle(c.buscarCiclo("DAM"));
+//        cur.imprimirCurs(cur.buscarCurso(1L));
+//        fam.imprimirFamiliaCicle(fam.buscarFamilia("Informatica"));
+//        m.imprimirMatricula(m.buscarMatricula(1L));
+//        i.imprimirImport(i.buscarImporte(1L));
+//        mo.imprimirModul(mo.buscarModul("M1"));
+//        uff.imprimirUnitatFormativa(uff.buscarUF("UF1"));
+//        
+        
+
 
     }
 
