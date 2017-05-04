@@ -72,7 +72,13 @@ public class M6_Practica_Persistence {
 //        ac.imprimirAlumne(ac.buscarPorNombre("joanaa"));
 //        //ac.modificar(al);
 //        ac.eliminar(al);
+
+
+
 // ________________________ INSERT _____________________________________________
+
+
+
 //        ac.Afegir(al);
 //        c.Afegir(cicle);
 //        cur.Afegir(curs);
@@ -81,17 +87,57 @@ public class M6_Practica_Persistence {
 //        i.Afegir(imp);
 //        mo.Afegir(mod);
 //        uff.Afegir(uf);
-// _____________________________________________________________________________
-        ac.imprimirAlumne(ac.buscarPorNombre("joanaa"));
-        c.imprimirCicle(c.buscarCiclo("DAM"));
-        cur.imprimirCurs(cur.buscarCurso(1L));
 
-        fam.imprimirFamiliaCicle(fam.buscarFamilia("Informatica"));
-        m.imprimirMatricula(m.buscarMatricula(1L));
 
-        i.imprimirImport(i.buscarImporte(1L));
-        mo.imprimirModul(mo.buscarModul("M1"));
-        uff.imprimirUnitatFormativa(uff.buscarUF("UF1"));
+
+
+// _______________________ MUESTRA _____________________________________________
+
+
+
+
+//        ac.imprimirAlumne(ac.buscarPorNombre("joanaa"));
+//        c.imprimirCicle(c.buscarCiclo("DAM"));
+//        cur.imprimirCurs(cur.buscarCurso(1L));
+//
+//        fam.imprimirFamiliaCicle(fam.buscarFamilia("Informatica"));
+//        m.imprimirMatricula(m.buscarMatricula(1L));
+//
+//        i.imprimirImport(i.buscarImporte(1L));
+//        mo.imprimirModul(mo.buscarModul("M1"));
+//        uff.imprimirUnitatFormativa(uff.buscarUF("UF1"));
+
+
+
+
+// ________________________ BORRAR _____________________________________________
+
+
+
+
+//        Alumne a = ac.buscarPorNombre("joanaa");
+//        ac.eliminar(a);
+//
+//        Cicle ci = c.buscarCiclo("DAM");
+//        c.eliminar(ci);
+//
+//        Curs cu = cur.buscarCurso(1L);
+//        cur.eliminar(cu);
+//
+//        FamiliaCicle fc = fam.buscarFamilia("Informatica");
+//        fam.eliminar(fc);
+//
+//        Matricula ma = m.buscarMatricula(1L);
+//        m.eliminar(ma);
+//
+//        Import im = i.buscarImporte(1L);
+//        i.eliminar(im);
+//
+//        Modul modul = mo.buscarModul("M1");
+//        mo.eliminar(modul);
+//
+//        UnitatFormativa unif = uff.buscarUF("UF1");
+//        uff.eliminar(unif);
 
     }
 

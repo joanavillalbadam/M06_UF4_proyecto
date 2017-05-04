@@ -53,7 +53,7 @@ public class Matricula implements Serializable {
     @Fetch(value = FetchMode.SUBSELECT)
     List<UnitatFormativa> unitatFormativa;
 
-    
+    //@OneToOne(cascade = {CascadeType.ALL})
     @OneToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "import_matricula")
     private Import importe;
