@@ -140,7 +140,7 @@ public class Curs_control implements CursIn {
     }
 
     public Long imprimirCurs(Curs c) {
-//        System.out.println(c);
+        System.out.println(c);
         return c.getIdCurso();
     }
 

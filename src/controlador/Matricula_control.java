@@ -147,7 +147,7 @@ public class Matricula_control implements MatriculaIn{
     }
 
     public Long imprimirMatricula(Matricula mat) {
-//        System.out.println(mat);
+        System.out.println(mat);
         
         return mat.getIdMatricula();
     }

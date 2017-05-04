@@ -145,7 +145,7 @@ public class Modul_control implements ModulIn {
     }
 
     public String imprimirModul(Modul mod) {
-//        System.out.println(mod);
+        System.out.println(mod);
 
         return mod.getNomModul();
     }

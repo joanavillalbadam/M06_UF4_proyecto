@@ -145,7 +145,7 @@ public class UnitatFormativa_control implements UnitatFormativaIn {
     }
 
     public String imprimirUnitatFormativa(UnitatFormativa uf) {
-//        System.out.println(uf);
+        System.out.println(uf);
 
         return uf.getNomUnitat();
     }

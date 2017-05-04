@@ -27,24 +27,18 @@ public class M6_Practica_Persistence {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-        /**
-         
-        Drop Table M6UF4_ALUMNE;
-        
-        Drop Table M6UF4_MATRICULA;
-        Drop Table M6UF4_IMPORT;
-        
-        Drop Table M6UF4_UNITATFORMATIVA;
-        Drop Table M6UF4_Modul; 
-        Drop Table M6UF4_CURS;
-        Drop Table M6UF4_CICLE;
-        Drop Table M6UF4_FAMILIACICLE;
-         
-         
-         */
-        
 
+        /**
+         *
+         * Drop Table M6UF4_ALUMNE;
+         *
+         * Drop Table M6UF4_MATRICULA; Drop Table M6UF4_IMPORT;
+         *
+         * Drop Table M6UF4_UNITATFORMATIVA; Drop Table M6UF4_Modul; Drop Table
+         * M6UF4_CURS; Drop Table M6UF4_CICLE; Drop Table M6UF4_FAMILIACICLE;
+         *
+         *
+         */
         /**
          * DROP TABLE M6UF2_Adreca; DROP TABLE M6UF2_POLISSA; DROP TABLE
          * M6UF2_USUARI; DROP TABLE VEHICLES; DROP TABLE M6UF2_CLIENT; DROP
@@ -78,11 +72,7 @@ public class M6_Practica_Persistence {
 //        ac.imprimirAlumne(ac.buscarPorNombre("joanaa"));
 //        //ac.modificar(al);
 //        ac.eliminar(al);
-
-
 // ________________________ INSERT _____________________________________________
-
-
 //        ac.Afegir(al);
 //        c.Afegir(cicle);
 //        cur.Afegir(curs);
@@ -91,20 +81,17 @@ public class M6_Practica_Persistence {
 //        i.Afegir(imp);
 //        mo.Afegir(mod);
 //        uff.Afegir(uf);
-        
 // _____________________________________________________________________________
-        
-//        ac.imprimirAlumne(ac.buscarPorNombre("joanaa"));
+        ac.imprimirAlumne(ac.buscarPorNombre("joanaa"));
         c.imprimirCicle(c.buscarCiclo("DAM"));
-//        cur.imprimirCurs(cur.buscarCurso(1L));
-//        fam.imprimirFamiliaCicle(fam.buscarFamilia("Informatica"));
-//        m.imprimirMatricula(m.buscarMatricula(1L));
-//        i.imprimirImport(i.buscarImporte(1L));
-//        mo.imprimirModul(mo.buscarModul("M1"));
-//        uff.imprimirUnitatFormativa(uff.buscarUF("UF1"));
-//        
-        
+        cur.imprimirCurs(cur.buscarCurso(1L));
 
+        fam.imprimirFamiliaCicle(fam.buscarFamilia("Informatica"));
+        m.imprimirMatricula(m.buscarMatricula(1L));
+
+        i.imprimirImport(i.buscarImporte(1L));
+        mo.imprimirModul(mo.buscarModul("M1"));
+        uff.imprimirUnitatFormativa(uff.buscarUF("UF1"));
 
     }
 

@@ -141,7 +141,7 @@ public class Import_control implements ImportIn {
     }
 
     public double imprimirImport(Import imp) {
-//        System.out.println(imp);
+        System.out.println(imp);
         return imp.getImporte();
     }
 

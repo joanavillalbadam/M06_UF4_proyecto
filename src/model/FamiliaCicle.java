@@ -10,11 +10,14 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 /**
  *
@@ -39,7 +42,8 @@ public class FamiliaCicle implements Serializable {
     
     
     //TODO: hacer la referencia a la clase cicle
-    @OneToMany(mappedBy="cicleF")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy="cicleF")
+    @Fetch(value = FetchMode.SUBSELECT)
     List<Cicle> cicle;
 
     public FamiliaCicle() {

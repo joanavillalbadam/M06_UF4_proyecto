@@ -149,7 +149,7 @@ public class Cicle_control implements CicleIn{
     }
 
     public String imprimirCicle(Cicle c) {
-        //System.out.println(c);
+        System.out.println(c);
         return c.getNombreCicle();
     }
 

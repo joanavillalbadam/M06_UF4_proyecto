@@ -143,7 +143,7 @@ public class FamiliaCicle_control implements FamiliaIn {
     }
 
     public String imprimirFamiliaCicle(FamiliaCicle fam) {
-//        System.out.println(fam);
+        System.out.println(fam);
         return fam.getNombreFamilia();
     }
 
