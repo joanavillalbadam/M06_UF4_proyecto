@@ -16,17 +16,16 @@ import model.UnitatFormativa;
  *
  * @author ALUMNEDAM
  */
-public class UnitatFormativa_control implements UnitatFormativaIn{
+public class UnitatFormativa_control implements UnitatFormativaIn {
 
     @Override
     public UnitatFormativa buscarUF(String nomUnitat) {
-    
-        
+
         // Recupera el entity manager
         EntityManager em = new Controlador().getEntityManager();
 
         System.out.println("Busqueda per nom UF: ");
-        Query query = em.createNamedQuery(UnitatFormativa.CONSULTA,UnitatFormativa.class);
+        Query query = em.createNamedQuery(UnitatFormativa.CONSULTA, UnitatFormativa.class);
         query.setParameter("nombre", nomUnitat);
         UnitatFormativa uf = (UnitatFormativa) query.getSingleResult();
 
@@ -34,13 +33,12 @@ public class UnitatFormativa_control implements UnitatFormativaIn{
         em.close();
 
         return uf;
-    
-    
+
     }
 
     @Override
     public void Afegir(UnitatFormativa uf) {
-    
+
         // Recupera el entity manager
         Controlador oem = new Controlador();
         EntityManager em = oem.getEntityManager();
@@ -61,13 +59,12 @@ public class UnitatFormativa_control implements UnitatFormativaIn{
 
         System.out.println("close");
         em.close();
-    
+
     }
 
     @Override
     public void modificar(UnitatFormativa uf) {
-    
-        
+
         // Recupera el entity manager
         Controlador oem = new Controlador();
         EntityManager em = oem.getEntityManager();
@@ -88,14 +85,13 @@ public class UnitatFormativa_control implements UnitatFormativaIn{
 
         System.out.println("close");
         em.close();
-    
+
     }
 
     @Override
     public void eliminar(UnitatFormativa uf) {
-    
-        
-         // Recupera el entity manager
+
+        // Recupera el entity manager
         Controlador oem = new Controlador();
         EntityManager em = oem.getEntityManager();
 
@@ -115,11 +111,10 @@ public class UnitatFormativa_control implements UnitatFormativaIn{
 
         System.out.println("close");
         em.close();
-    
+
     }
-    
-    
-    public void Consulta() {
+
+    public List<UnitatFormativa> Consulta() {
         // Recupera el entity manager
         EntityManager em = new Controlador().getEntityManager();
 
@@ -127,25 +122,26 @@ public class UnitatFormativa_control implements UnitatFormativaIn{
         //List<Persona> lista = (List<Persona>) em.createQuery("FROM Persona").getResultList();
         Query q = em.createQuery("FROM UnitatFormativa");
         List<UnitatFormativa> lista = (List<UnitatFormativa>) q.getResultList();
-        imprimirLista(lista);
+        //imprimirLista(lista);
 
         System.out.println("close");
         em.close();
+
+        return lista;
     }
-    
-    public void imprimirLista(List<UnitatFormativa> lista) {
+
+    public UnitatFormativa imprimirLista(List<UnitatFormativa> lista, int i) {
         System.out.println("Numero: = " + lista.size());
-        for (int i = 0; i < lista.size(); i++) {
-            System.out.println(lista.get(i));
-        }
+//        for (int i = 0; i < lista.size(); i++) {
+//            System.out.println(lista.get(i));
+//        }
+        return lista.get(i);
     }
 
-    public void imprimirUnitatFormativa(UnitatFormativa uf) {
-        System.out.println(uf);
+    public String imprimirUnitatFormativa(UnitatFormativa uf) {
+//        System.out.println(uf);
+
+        return uf.getNomUnitat();
     }
 
-    
-
-    
-    
 }

@@ -20,12 +20,11 @@ import model.Import;
  */
 public class Import_control implements ImportIn {
 
-@Override
+    @Override
     public Import buscarImporte(Long idImport) {
-    
-         // Recupera el entity manager
-        EntityManager em = new Controlador().getEntityManager();
 
+        // Recupera el entity manager
+        EntityManager em = new Controlador().getEntityManager();
 
         System.out.println("Busqueda per id Import: ");
         Import imp = (Import) em.find(Import.class, idImport);
@@ -34,7 +33,7 @@ public class Import_control implements ImportIn {
         em.close();
 
         return imp;
-    
+
     }
 
     @Override
@@ -111,31 +110,33 @@ public class Import_control implements ImportIn {
         em.close();
     }
 
-    public void Consulta() {
+    public List<Import> Consulta() {
         // Recupera el entity manager
         EntityManager em = new Controlador().getEntityManager();
 
         System.out.println("Consulta");
         //List<Persona> lista = (List<Persona>) em.createQuery("FROM Persona").getResultList();
-        Query q = em.createQuery("FROM Curs");
+        Query q = em.createQuery("FROM Import");
         List<Import> lista = (List<Import>) q.getResultList();
-        imprimirLista(lista);
+        //imprimirLista(lista);
 
         System.out.println("close");
         em.close();
+
+        return lista;
     }
 
-    public void imprimirLista(List<Import> lista) {
+    public Import imprimirLista(List<Import> lista, int i) {
         System.out.println("Numero: = " + lista.size());
-        for (int i = 0; i < lista.size(); i++) {
-            System.out.println(lista.get(i));
-        }
+//        for (int i = 0; i < lista.size(); i++) {
+//            System.out.println(lista.get(i));
+//        }
+        return lista.get(i);
     }
 
-    public void imprimirImport(Import imp) {
-        System.out.println(imp);
+    public double imprimirImport(Import imp) {
+//        System.out.println(imp);
+        return imp.getImporte();
     }
-
-    
 
 }

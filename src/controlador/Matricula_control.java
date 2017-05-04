@@ -115,29 +115,35 @@ public class Matricula_control implements MatriculaIn{
     }
 
     
-    public void Consulta() {
+    public List<Matricula> Consulta() {
         // Recupera el entity manager
         EntityManager em = new Controlador().getEntityManager();
 
         System.out.println("Consulta");
         //List<Persona> lista = (List<Persona>) em.createQuery("FROM Persona").getResultList();
-        Query q = em.createQuery("FROM Curs");
+        Query q = em.createQuery("FROM Matricula");
         List<Matricula> lista = (List<Matricula>) q.getResultList();
-        imprimirLista(lista);
+        
+        //imprimirLista(lista);
 
         System.out.println("close");
         em.close();
+        return lista;
     }
     
-    public void imprimirLista(List<Matricula> lista) {
+    public Matricula imprimirLista(List<Matricula> lista, int i) {
         System.out.println("Numero: = " + lista.size());
-        for (int i = 0; i < lista.size(); i++) {
-            System.out.println(lista.get(i));
-        }
+//        for (int i = 0; i < lista.size(); i++) {
+//            System.out.println(lista.get(i));
+//        }
+        
+        return lista.get(i);
     }
 
-    public void imprimirMatricula(Matricula mat) {
-        System.out.println(mat);
+    public Long imprimirMatricula(Matricula mat) {
+//        System.out.println(mat);
+        
+        return mat.getIdMatricula();
     }
    
 

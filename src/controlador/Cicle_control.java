@@ -120,7 +120,7 @@ public class Cicle_control implements CicleIn{
     
     }
     
-    public void Consulta() {
+    public List<Cicle> Consulta() {
         // Recupera el entity manager
         EntityManager em = new Controlador().getEntityManager();
 
@@ -128,21 +128,25 @@ public class Cicle_control implements CicleIn{
         //List<Persona> lista = (List<Persona>) em.createQuery("FROM Persona").getResultList();
         Query q = em.createQuery("FROM Cicle");
         List<Cicle> lista = (List<Cicle>) q.getResultList();
-        imprimirLista(lista);
+        //imprimirLista(lista);
 
         System.out.println("close");
         em.close();
+        
+//        for (int i = 0; i < lista.size(); i++) {
+//            System.out.println(lista.get(i));
+//        }
+        return lista;
     }
     
-    public void imprimirLista(List<Cicle> lista) {
+    public Cicle imprimirLista(List<Cicle> lista, int i) {
         System.out.println("Numero: = " + lista.size());
-        for (int i = 0; i < lista.size(); i++) {
-            System.out.println(lista.get(i));
-        }
+        return lista.get(i);
     }
 
-    public void imprimirCicle(Cicle c) {
-        System.out.println(c);
+    public String imprimirCicle(Cicle c) {
+        //System.out.println(c);
+        return c.getNombreCicle();
     }
 
 

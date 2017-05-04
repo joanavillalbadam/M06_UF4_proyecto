@@ -16,16 +16,16 @@ import model.Alumne;
  *
  * @author ALUMNEDAM
  */
-public class Alumne_control implements AlumneIn{
+public class Alumne_control implements AlumneIn {
 
     @Override
     public Alumne buscarPorNombre(String nom) {
-    
+
         // Recupera el entity manager
         EntityManager em = new Controlador().getEntityManager();
 
         System.out.println("Busqueda per nom Alumne: ");
-        Query query = em.createNamedQuery(Alumne.CONSULTA,Alumne.class);
+        Query query = em.createNamedQuery(Alumne.CONSULTA, Alumne.class);
         query.setParameter("nombre", nom);
         Alumne c = (Alumne) query.getSingleResult();
 
@@ -33,12 +33,12 @@ public class Alumne_control implements AlumneIn{
         em.close();
 
         return c;
-    
+
     }
 
     @Override
     public void Afegir(Alumne a) {
-    
+
         // Recupera el entity manager
         Controlador oem = new Controlador();
         EntityManager em = oem.getEntityManager();
@@ -59,12 +59,12 @@ public class Alumne_control implements AlumneIn{
 
         System.out.println("close");
         em.close();
-    
+
     }
-    
+
     @Override
     public void modificar(Alumne a) {
-    
+
         // Recupera el entity manager
         controlador.Controlador oem = new controlador.Controlador();
         EntityManager em = oem.getEntityManager();
@@ -85,19 +85,19 @@ public class Alumne_control implements AlumneIn{
 
         System.out.println("close");
         em.close();
-    
+
     }
 
     @Override
     public void eliminar(Alumne a) {
-    
+
         // Recupera el entity manager
         controlador.Controlador oem = new controlador.Controlador();
         EntityManager em = oem.getEntityManager();
 
         // El persistim a la base de dades
         //em.getTransaction().begin();
-      EntityTransaction etx = em.getTransaction();
+        EntityTransaction etx = em.getTransaction();
 
         System.out.println("begin");
         etx.begin();
@@ -111,37 +111,33 @@ public class Alumne_control implements AlumneIn{
 
         System.out.println("close");
         em.close();
-        
-    
+
     }
-    
-    public void Consulta() {
+
+    public List<Alumne> Consulta() {
         // Recupera el entity manager
         EntityManager em = new Controlador().getEntityManager();
 
         System.out.println("Consulta");
-        //List<Persona> lista = (List<Persona>) em.createQuery("FROM Persona").getResultList();
-        Query q = em.createQuery("FROM UnitatFormativa");
+        Query q = em.createQuery("FROM Alumne");
         List<Alumne> lista = (List<Alumne>) q.getResultList();
-        imprimirLista(lista);
+
 
         System.out.println("close");
         em.close();
+
+        return lista;
     }
-    
-    public void imprimirLista(List<Alumne> lista) {
+
+    public Alumne imprimirLista(List<Alumne> lista, int i) {
         System.out.println("Numero: = " + lista.size());
-        for (int i = 0; i < lista.size(); i++) {
-            System.out.println(lista.get(i));
-        }
+
+        return lista.get(i);
     }
 
-    public void imprimirAlumne(Alumne alumne) {
+    public String imprimirAlumne(Alumne alumne) {
         System.out.println(alumne);
+        return alumne.getNif();
     }
 
-    
-
-   
-    
 }

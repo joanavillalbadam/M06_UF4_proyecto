@@ -16,13 +16,12 @@ import model.Curs;
  *
  * @author ALUMNEDAM
  */
-public class Curs_control implements CursIn{
+public class Curs_control implements CursIn {
 
     @Override
     public Curs buscarCurso(Long idCurs) {
-         // Recupera el entity manager
+        // Recupera el entity manager
         EntityManager em = new Controlador().getEntityManager();
-
 
         System.out.println("Busqueda per id curs: ");
         Curs curs = (Curs) em.find(Curs.class, idCurs);
@@ -35,7 +34,7 @@ public class Curs_control implements CursIn{
 
     @Override
     public void Afegir(Curs c) {
-    
+
         // Recupera el entity manager
         Controlador oem = new Controlador();
         EntityManager em = oem.getEntityManager();
@@ -56,13 +55,12 @@ public class Curs_control implements CursIn{
 
         System.out.println("close");
         em.close();
-    
+
     }
 
     @Override
     public void modificar(Curs c) {
-    
-        
+
         // Recupera el entity manager
         Controlador oem = new Controlador();
         EntityManager em = oem.getEntityManager();
@@ -83,14 +81,13 @@ public class Curs_control implements CursIn{
 
         System.out.println("close");
         em.close();
-    
+
     }
 
     @Override
     public void eliminar(Curs c) {
-    
-        
-         // Recupera el entity manager
+
+        // Recupera el entity manager
         Controlador oem = new Controlador();
         EntityManager em = oem.getEntityManager();
 
@@ -110,10 +107,10 @@ public class Curs_control implements CursIn{
 
         System.out.println("close");
         em.close();
-    
+
     }
-    
-    public void Consulta() {
+
+    public List<Curs> Consulta() {
         // Recupera el entity manager
         EntityManager em = new Controlador().getEntityManager();
 
@@ -121,23 +118,25 @@ public class Curs_control implements CursIn{
         //List<Persona> lista = (List<Persona>) em.createQuery("FROM Persona").getResultList();
         Query q = em.createQuery("FROM Curs");
         List<Curs> lista = (List<Curs>) q.getResultList();
-        imprimirLista(lista);
+        //imprimirLista(lista);
 
         System.out.println("close");
         em.close();
+
+        return lista;
     }
-    
-    public void imprimirLista(List<Curs> lista) {
+
+    public Curs imprimirLista(List<Curs> lista, int i) {
         System.out.println("Numero: = " + lista.size());
-        for (int i = 0; i < lista.size(); i++) {
-            System.out.println(lista.get(i));
-        }
+//        for (int i = 0; i < lista.size(); i++) {
+//            System.out.println(lista.get(i));
+//        }
+        return lista.get(i);
     }
 
-    public void imprimirCurs(Curs c) {
-        System.out.println(c);
+    public Long imprimirCurs(Curs c) {
+//        System.out.println(c);
+        return c.getIdCurso();
     }
 
-   
-    
 }

@@ -16,16 +16,16 @@ import model.FamiliaCicle;
  *
  * @author ALUMNEDAM
  */
-public class FamiliaCicle_control implements FamiliaIn{
+public class FamiliaCicle_control implements FamiliaIn {
 
     @Override
     public FamiliaCicle buscarFamilia(String nomFamilia) {
-    
+
         // Recupera el entity manager
         EntityManager em = new Controlador().getEntityManager();
 
         System.out.println("Busqueda per nom Familia Cicle: ");
-        Query query = em.createNamedQuery(FamiliaCicle.CONSULTA,FamiliaCicle.class);
+        Query query = em.createNamedQuery(FamiliaCicle.CONSULTA, FamiliaCicle.class);
         query.setParameter("nombre", nomFamilia);
         FamiliaCicle c = (FamiliaCicle) query.getSingleResult();
 
@@ -33,12 +33,12 @@ public class FamiliaCicle_control implements FamiliaIn{
         em.close();
 
         return c;
-    
+
     }
 
     @Override
     public void Afegir(FamiliaCicle f) {
-    
+
         // Recupera el entity manager
         Controlador oem = new Controlador();
         EntityManager em = oem.getEntityManager();
@@ -59,13 +59,12 @@ public class FamiliaCicle_control implements FamiliaIn{
 
         System.out.println("close");
         em.close();
-    
+
     }
 
     @Override
     public void modificar(FamiliaCicle f) {
-    
-        
+
         // Recupera el entity manager
         Controlador oem = new Controlador();
         EntityManager em = oem.getEntityManager();
@@ -86,14 +85,13 @@ public class FamiliaCicle_control implements FamiliaIn{
 
         System.out.println("close");
         em.close();
-    
+
     }
 
     @Override
     public void eliminar(FamiliaCicle f) {
-        
-        
-         // Recupera el entity manager
+
+        // Recupera el entity manager
         Controlador oem = new Controlador();
         EntityManager em = oem.getEntityManager();
 
@@ -113,11 +111,10 @@ public class FamiliaCicle_control implements FamiliaIn{
 
         System.out.println("close");
         em.close();
-    
-        
+
     }
-    
-    public void Consulta() {
+
+    public List<FamiliaCicle> Consulta() {
         // Recupera el entity manager
         EntityManager em = new Controlador().getEntityManager();
 
@@ -125,24 +122,24 @@ public class FamiliaCicle_control implements FamiliaIn{
         //List<Persona> lista = (List<Persona>) em.createQuery("FROM Persona").getResultList();
         Query q = em.createQuery("FROM FamiliaCicle");
         List<FamiliaCicle> lista = (List<FamiliaCicle>) q.getResultList();
-        imprimirLista(lista);
+        //imprimirLista(lista);
 
         System.out.println("close");
         em.close();
+        return lista;
     }
-    
-    public void imprimirLista(List<FamiliaCicle> lista) {
+
+    public FamiliaCicle imprimirLista(List<FamiliaCicle> lista, int i) {
         System.out.println("Numero: = " + lista.size());
-        for (int i = 0; i < lista.size(); i++) {
-            System.out.println(lista.get(i));
-        }
+//        for (int i = 0; i < lista.size(); i++) {
+//            System.out.println(lista.get(i));
+//        }
+        return lista.get(i);
     }
 
-    public void imprimirFamiliaCicle(FamiliaCicle fam) {
-        System.out.println(fam);
+    public String imprimirFamiliaCicle(FamiliaCicle fam) {
+//        System.out.println(fam);
+        return fam.getNombreFamilia();
     }
 
-
-   
-    
 }

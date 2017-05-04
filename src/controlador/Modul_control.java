@@ -16,16 +16,16 @@ import model.Modul;
  *
  * @author ALUMNEDAM
  */
-public class Modul_control implements ModulIn{
+public class Modul_control implements ModulIn {
 
     @Override
     public Modul buscarModul(String nomModul) {
-    
-         // Recupera el entity manager
+
+        // Recupera el entity manager
         EntityManager em = new Controlador().getEntityManager();
 
         System.out.println("Busqueda per nom Modul: ");
-        Query query = em.createNamedQuery(Modul.CONSULTA,Modul.class);
+        Query query = em.createNamedQuery(Modul.CONSULTA, Modul.class);
         query.setParameter("nombre", nomModul);
         Modul mod = (Modul) query.getSingleResult();
 
@@ -33,12 +33,12 @@ public class Modul_control implements ModulIn{
         em.close();
 
         return mod;
-    
+
     }
 
     @Override
     public void Afegir(Modul m) {
-    
+
         // Recupera el entity manager
         Controlador oem = new Controlador();
         EntityManager em = oem.getEntityManager();
@@ -59,14 +59,12 @@ public class Modul_control implements ModulIn{
 
         System.out.println("close");
         em.close();
-    
+
     }
 
     @Override
     public void modificar(Modul m) {
-    
-        
-        
+
         // Recupera el entity manager
         Controlador oem = new Controlador();
         EntityManager em = oem.getEntityManager();
@@ -87,14 +85,13 @@ public class Modul_control implements ModulIn{
 
         System.out.println("close");
         em.close();
-    
+
     }
 
     @Override
     public void eliminar(Modul m) {
-    
-        
-         // Recupera el entity manager
+
+        // Recupera el entity manager
         Controlador oem = new Controlador();
         EntityManager em = oem.getEntityManager();
 
@@ -114,36 +111,37 @@ public class Modul_control implements ModulIn{
 
         System.out.println("close");
         em.close();
-    
+
     }
 
-   
-    
-    public void Consulta() {
+    public List<Modul> Consulta() {
         // Recupera el entity manager
         EntityManager em = new Controlador().getEntityManager();
 
         System.out.println("Consulta");
         //List<Persona> lista = (List<Persona>) em.createQuery("FROM Persona").getResultList();
-        Query q = em.createQuery("FROM Curs");
+        Query q = em.createQuery("FROM Modul");
         List<Modul> lista = (List<Modul>) q.getResultList();
-        imprimirLista(lista);
+        // imprimirLista(lista);
 
         System.out.println("close");
         em.close();
+
+        return lista;
     }
-    
-    public void imprimirLista(List<Modul> lista) {
+
+    public Modul imprimirLista(List<Modul> lista, int i) {
         System.out.println("Numero: = " + lista.size());
-        for (int i = 0; i < lista.size(); i++) {
-            System.out.println(lista.get(i));
-        }
+//        for (int i = 0; i < lista.size(); i++) {
+//            System.out.println(lista.get(i));
+//        }
+        return lista.get(i);
     }
 
-    public void imprimirModul(Modul mod) {
-        System.out.println(mod);
+    public String imprimirModul(Modul mod) {
+//        System.out.println(mod);
+
+        return mod.getNomModul();
     }
 
-   
-    
 }
