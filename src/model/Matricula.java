@@ -44,7 +44,7 @@ public class Matricula implements Serializable {
     private Alumne alumne;
     
     @Column(name = "dataMatricula", nullable = false)
-    private Calendar dataMatricula;
+    private String dataMatricula;
 
     @OneToMany(mappedBy = "matricula")
     List<UnitatFormativa> unitatFormativa;
@@ -66,7 +66,7 @@ public class Matricula implements Serializable {
     public Matricula() {
     }
 
-    public Matricula(Long idMatricula, Alumne alumne, Calendar dataMatricula, boolean modalitat, boolean descuentos) {
+    public Matricula(Long idMatricula, Alumne alumne, String dataMatricula, boolean modalitat, boolean descuentos) {
         this.idMatricula = idMatricula;
         this.alumne = alumne;
         this.dataMatricula = dataMatricula;
@@ -91,13 +91,15 @@ public class Matricula implements Serializable {
         this.alumne = alumne;
     }
 
-    public Calendar getDataMatricula() {
+    public String getDataMatricula() {
         return dataMatricula;
     }
 
-    public void setDataMatricula(Calendar dataMatricula) {
+    public void setDataMatricula(String dataMatricula) {
         this.dataMatricula = dataMatricula;
     }
+
+    
 
     public List<UnitatFormativa> getUnitatFormativa() {
         return unitatFormativa;
@@ -155,6 +157,8 @@ public class Matricula implements Serializable {
     public String toString() {
         return "Matricula{" + "idMatricula=" + idMatricula + ", alumne=" + alumne + ", dataMatricula=" + dataMatricula + ", unitatFormativa=" + unitatFormativa + ", importe=" + importe + ", modalitat=" + modalitat + ", descuentos=" + descuentos + '}';
     }
+
+    
 
     
 

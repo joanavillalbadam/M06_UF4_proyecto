@@ -18,6 +18,10 @@ import model.Matricula;
  */
 public class Matricula_control implements MatriculaIn{
 
+    
+    public boolean compro = false;
+    
+    
     @Override
     public Matricula buscarMatricula(Long idMatricula) {
     
@@ -57,6 +61,8 @@ public class Matricula_control implements MatriculaIn{
 
         System.out.println("close");
         em.close();
+        
+        compro = true;
     
     }
 

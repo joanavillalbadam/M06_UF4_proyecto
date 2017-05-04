@@ -18,6 +18,10 @@ import model.UnitatFormativa;
  */
 public class UnitatFormativa_control implements UnitatFormativaIn {
 
+    
+    public boolean compro = false;
+    
+    
     @Override
     public UnitatFormativa buscarUF(String nomUnitat) {
 
@@ -59,6 +63,8 @@ public class UnitatFormativa_control implements UnitatFormativaIn {
 
         System.out.println("close");
         em.close();
+        
+        compro = true;
 
     }
 

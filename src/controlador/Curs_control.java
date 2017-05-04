@@ -18,6 +18,9 @@ import model.Curs;
  */
 public class Curs_control implements CursIn {
 
+    
+    public boolean compro = false;
+    
     @Override
     public Curs buscarCurso(Long idCurs) {
         // Recupera el entity manager
@@ -55,6 +58,8 @@ public class Curs_control implements CursIn {
 
         System.out.println("close");
         em.close();
+        
+        compro = true;
 
     }
 

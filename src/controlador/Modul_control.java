@@ -18,6 +18,10 @@ import model.Modul;
  */
 public class Modul_control implements ModulIn {
 
+    
+    public boolean compro = false;
+    
+    
     @Override
     public Modul buscarModul(String nomModul) {
 
@@ -59,6 +63,8 @@ public class Modul_control implements ModulIn {
 
         System.out.println("close");
         em.close();
+        
+        compro = true;
 
     }
 

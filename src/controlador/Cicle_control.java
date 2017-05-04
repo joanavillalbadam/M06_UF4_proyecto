@@ -18,6 +18,9 @@ import model.Cicle;
  */
 public class Cicle_control implements CicleIn{
 
+    
+    public boolean compro = false;
+    
     @Override
     public Cicle buscarCiclo(String nomCicle) {
     
@@ -60,6 +63,7 @@ public class Cicle_control implements CicleIn{
 
         System.out.println("close");
         em.close();
+        compro = true;
     
         
     }

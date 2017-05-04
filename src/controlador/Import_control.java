@@ -20,6 +20,10 @@ import model.Import;
  */
 public class Import_control implements ImportIn {
 
+    
+    public boolean compro = false;
+    
+    
     @Override
     public Import buscarImporte(Long idImport) {
 
@@ -59,6 +63,8 @@ public class Import_control implements ImportIn {
 
         System.out.println("close");
         em.close();
+        
+        compro = true;
 
     }
 

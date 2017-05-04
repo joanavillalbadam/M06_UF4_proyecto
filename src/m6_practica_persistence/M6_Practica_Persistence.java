@@ -66,7 +66,7 @@ public class M6_Practica_Persistence {
         Curs curs = new Curs(1L, "2nd");
         FamiliaCicle f = new FamiliaCicle(1L, "Informatica");
 
-        Matricula mat = new Matricula(1L, al, c1, true, true);
+        Matricula mat = new Matricula(1L, al, "04/5/2017", true, true);
         Import imp = new Import(1L, 380, mat);
 
         Modul mod = new Modul(1L, "M1");

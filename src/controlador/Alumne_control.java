@@ -17,6 +17,8 @@ import model.Alumne;
  * @author ALUMNEDAM
  */
 public class Alumne_control implements AlumneIn {
+    
+    public boolean compro = false;
 
     @Override
     public Alumne buscarPorNombre(String nom) {
@@ -59,6 +61,8 @@ public class Alumne_control implements AlumneIn {
 
         System.out.println("close");
         em.close();
+        compro = true;
+        
 
     }
 

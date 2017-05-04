@@ -18,6 +18,9 @@ import model.FamiliaCicle;
  */
 public class FamiliaCicle_control implements FamiliaIn {
 
+    public boolean compro = false;
+    
+    
     @Override
     public FamiliaCicle buscarFamilia(String nomFamilia) {
 
@@ -59,6 +62,8 @@ public class FamiliaCicle_control implements FamiliaIn {
 
         System.out.println("close");
         em.close();
+        
+        compro = true;
 
     }
 
