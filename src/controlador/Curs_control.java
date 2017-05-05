@@ -139,9 +139,9 @@ public class Curs_control implements CursIn {
         return lista.get(i);
     }
 
-    public Long imprimirCurs(Curs c) {
+    public String imprimirCurs(Curs c) {
         System.out.println(c);
-        return c.getIdCurso();
+        return c.getPrimSegun();
     }
 
 }
