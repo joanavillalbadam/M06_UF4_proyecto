@@ -5,6 +5,7 @@
  */
 package Interficies;
 
+import Exceptions.ExceptionBuscar;
 import model.Modul;
 
 /**
@@ -13,5 +14,5 @@ import model.Modul;
  */
 public interface ModulIn extends SuperGenerica<Modul> {
 
-    public Modul buscarModul(String nomModul);
+    public Modul buscarModul(String nomModul) throws ExceptionBuscar;
 }

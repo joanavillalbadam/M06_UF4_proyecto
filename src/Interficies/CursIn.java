@@ -5,6 +5,7 @@
  */
 package Interficies;
 
+import Exceptions.ExceptionBuscar;
 import model.Curs;
 
 /**
@@ -12,5 +13,5 @@ import model.Curs;
  * @author ALUMNEDAM
  */
 public interface CursIn extends SuperGenerica<Curs>{
-    public Curs buscarCurso(Long idCurs);
+    public Curs buscarCurso(Long idCurs) throws ExceptionBuscar;
 }

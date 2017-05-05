@@ -5,6 +5,7 @@
  */
 package Interficies;
 
+import Exceptions.ExceptionBuscar;
 import model.Cicle;
 
 /**
@@ -13,5 +14,5 @@ import model.Cicle;
  */
 public interface CicleIn extends SuperGenerica<Cicle>{
     
-    public Cicle buscarCiclo(String nomCicle);
+    public Cicle buscarCiclo(String nomCicle) throws ExceptionBuscar;
 }

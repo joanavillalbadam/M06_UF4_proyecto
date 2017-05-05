@@ -5,15 +5,17 @@
  */
 package Interficies;
 
+import Exceptions.*;
+
 /**
  *
  * @author ALUMNEDAM
  */
 public interface SuperGenerica<T>{
     
-    public void Afegir(T t);
-    public void modificar(T t);
-    public void eliminar(T t);
+    public void Afegir(T t) throws ExceptionAfegir;
+    public void modificar(T t) throws ExceptionModificar;
+    public void eliminar(T t) throws ExceptionEliminar;
     
     
 }

@@ -5,6 +5,7 @@
  */
 package Interficies;
 
+import Exceptions.ExceptionBuscar;
 import model.Import;
 
 /**
@@ -13,5 +14,5 @@ import model.Import;
  */
 public interface ImportIn extends SuperGenerica<Import> {
 
-    public Import buscarImporte(Long idImport);
+    public Import buscarImporte(Long idImport) throws ExceptionBuscar;
 }

@@ -3,17 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Interficies;
-
-import Exceptions.ExceptionBuscar;
-import model.Alumne;
+package Exceptions;
 
 /**
  *
  * @author ALUMNEDAM
  */
-public interface AlumneIn extends SuperGenerica<Alumne> {
+public class ExceptionModificar extends Exception{
     
-    public Alumne buscarPorNombre(String nom)throws ExceptionBuscar;
+    public ExceptionModificar() {
+        System.err.println("Error al modificar en la base de dato.");
+    }
     
 }

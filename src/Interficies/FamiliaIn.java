@@ -5,6 +5,7 @@
  */
 package Interficies;
 
+import Exceptions.ExceptionBuscar;
 import model.FamiliaCicle;
 
 /**
@@ -13,6 +14,6 @@ import model.FamiliaCicle;
  */
 public interface FamiliaIn extends SuperGenerica<FamiliaCicle> {
 
-    public FamiliaCicle buscarFamilia(String nomFamilia);
+    public FamiliaCicle buscarFamilia(String nomFamilia) throws ExceptionBuscar;
 
 }

@@ -140,9 +140,9 @@ public class Import_control implements ImportIn {
         return lista.get(i);
     }
 
-    public double imprimirImport(Import imp) {
+    public Long imprimirImport(Import imp) {
         System.out.println(imp);
-        return imp.getImporte();
+        return imp.getIdImport();
     }
 
 }

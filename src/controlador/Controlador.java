@@ -11,17 +11,25 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import model.Cicle;
+
 /**
  *
  * @author ALUMNEDAM
  */
 public class Controlador {
-    
+
     public EntityManager getEntityManager() {
-        
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("INTERNA");
-    //EntityManagerFactory emf = Persistence.createEntityManagerFactory("EXTERNA");
-        EntityManager em = emf.createEntityManager();
+
+        EntityManager em;
+        try {
+
+            EntityManagerFactory emf = Persistence.createEntityManagerFactory("INTERNA");
+            em = emf.createEntityManager();
+        } catch (Exception e) {
+            EntityManagerFactory emf = Persistence.createEntityManagerFactory("EXTERNA");
+            em = emf.createEntityManager();
+        }
+
         return em;
     }
 }

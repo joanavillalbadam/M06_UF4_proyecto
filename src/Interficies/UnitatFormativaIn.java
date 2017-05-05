@@ -5,6 +5,7 @@
  */
 package Interficies;
 
+import Exceptions.ExceptionBuscar;
 import model.UnitatFormativa;
 
 /**
@@ -13,5 +14,5 @@ import model.UnitatFormativa;
  */
 public interface UnitatFormativaIn extends SuperGenerica<UnitatFormativa> {
 
-    public UnitatFormativa buscarUF(String nomUnitat);
+    public UnitatFormativa buscarUF(String nomUnitat) throws ExceptionBuscar;
 }

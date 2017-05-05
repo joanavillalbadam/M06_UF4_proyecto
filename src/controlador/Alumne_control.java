@@ -11,6 +11,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 import model.Alumne;
+import Exceptions.*;
 
 /**
  *
@@ -21,7 +22,7 @@ public class Alumne_control implements AlumneIn {
     public boolean compro = false;
 
     @Override
-    public Alumne buscarPorNombre(String nom) {
+    public Alumne buscarPorNombre(String nom)  {
 
         // Recupera el entity manager
         EntityManager em = new Controlador().getEntityManager();

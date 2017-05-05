@@ -5,6 +5,7 @@
  */
 package Interficies;
 
+import Exceptions.ExceptionBuscar;
 import model.Matricula;
 
 /**
@@ -13,5 +14,5 @@ import model.Matricula;
  */
 public interface MatriculaIn extends SuperGenerica<Matricula> {
 
-    public Matricula buscarMatricula(Long idMatricula);
+    public Matricula buscarMatricula(Long idMatricula) throws ExceptionBuscar;
 }
