@@ -12,7 +12,7 @@ import Exceptions.*;
  * @author ALUMNEDAM
  */
 public interface SuperGenerica<T>{
-    
+    //Declaramos una interficie SuperGenerica que contendra añadir, modificar y eliminar para ahorrar lineas de codigo
     public void Afegir(T t) throws ExceptionAfegir;
     public void modificar(T t) throws ExceptionModificar;
     public void eliminar(T t) throws ExceptionEliminar;

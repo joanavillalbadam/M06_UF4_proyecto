@@ -13,6 +13,6 @@ import model.UnitatFormativa;
  * @author ALUMNEDAM
  */
 public interface UnitatFormativaIn extends SuperGenerica<UnitatFormativa> {
-
+//Declaramos una interficie que extiende de la clase SuperGenerica para ahorrar lineas de codigo
     public UnitatFormativa buscarUF(String nomUnitat) throws ExceptionBuscar;
 }

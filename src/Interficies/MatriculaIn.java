@@ -13,6 +13,6 @@ import model.Matricula;
  * @author ALUMNEDAM
  */
 public interface MatriculaIn extends SuperGenerica<Matricula> {
-
+//Declaramos una interficie que extiende de la clase SuperGenerica para ahorrar lineas de codigo
     public Matricula buscarMatricula(Long idMatricula) throws ExceptionBuscar;
 }

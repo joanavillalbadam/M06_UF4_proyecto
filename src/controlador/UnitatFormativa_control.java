@@ -28,14 +28,19 @@ public class UnitatFormativa_control implements UnitatFormativaIn {
         // Recupera el entity manager
         EntityManager em = new Controlador().getEntityManager();
 
+        //hacemos la guery
         System.out.println("Busqueda per nom UF: ");
+        //le pasamos el parametro con el que ara el where
         Query query = em.createNamedQuery(UnitatFormativa.CONSULTA, UnitatFormativa.class);
         query.setParameter("nombre", nomUnitat);
+        //recojemos el resultado
         UnitatFormativa uf = (UnitatFormativa) query.getSingleResult();
 
+        //cerramos la conexion
         System.out.println("close");
         em.close();
 
+        //devolvemos el objeto
         return uf;
 
     }
@@ -51,6 +56,7 @@ public class UnitatFormativa_control implements UnitatFormativaIn {
         //em.getTransaction().begin();
         EntityTransaction etx = em.getTransaction();
 
+        //hacemos el begin, persist y commit y cerramos la conexion
         System.out.println("begin");
         etx.begin();
 
@@ -79,6 +85,7 @@ public class UnitatFormativa_control implements UnitatFormativaIn {
         //em.getTransaction().begin();
         EntityTransaction etx = em.getTransaction();
 
+        //hacemos el begin, merge y commit y cerramos la conexion
         System.out.println("begin");
         etx.begin();
 
@@ -105,6 +112,7 @@ public class UnitatFormativa_control implements UnitatFormativaIn {
         //em.getTransaction().begin();
         EntityTransaction etx = em.getTransaction();
 
+        //hacemos el begin, remove , commit y cerramos la conexion
         System.out.println("begin");
         etx.begin();
 
@@ -124,29 +132,31 @@ public class UnitatFormativa_control implements UnitatFormativaIn {
         // Recupera el entity manager
         EntityManager em = new Controlador().getEntityManager();
 
+        //creamos el Query
         System.out.println("Consulta");
         //List<Persona> lista = (List<Persona>) em.createQuery("FROM Persona").getResultList();
+        //recogemos el resultado
         Query q = em.createQuery("FROM UnitatFormativa");
         List<UnitatFormativa> lista = (List<UnitatFormativa>) q.getResultList();
         //imprimirLista(lista);
 
+        //cerramos la conexion
         System.out.println("close");
         em.close();
 
+        //devolvemos la lista
         return lista;
     }
 
     public UnitatFormativa imprimirLista(List<UnitatFormativa> lista, int i) {
         System.out.println("Numero: = " + lista.size());
-//        for (int i = 0; i < lista.size(); i++) {
-//            System.out.println(lista.get(i));
-//        }
+        //devolvemos el objeto i de la lista
         return lista.get(i);
     }
 
     public String imprimirUnitatFormativa(UnitatFormativa uf) {
         System.out.println(uf);
-
+        //devolvemos el nombre de la unidad
         return uf.getNomUnitat();
     }
 

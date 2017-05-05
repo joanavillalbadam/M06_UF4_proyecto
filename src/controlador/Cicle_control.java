@@ -27,14 +27,18 @@ public class Cicle_control implements CicleIn{
         // Recupera el entity manager
         EntityManager em = new Controlador().getEntityManager();
 
+        //hacemos la guery
         System.out.println("Busqueda per nom Cicle: ");
         Query query = em.createNamedQuery(Cicle.CONSULTA,Cicle.class);
+        //le pasamos el parametro con el que ara el where
         query.setParameter("nombre", nomCicle);
+        //recojemos el resultado
         Cicle c = (Cicle) query.getSingleResult();
 
+        //cerramos la conexion
         System.out.println("close");
         em.close();
-
+        //devolvemos el objeto
         return c;
         
     
@@ -51,6 +55,7 @@ public class Cicle_control implements CicleIn{
         //em.getTransaction().begin();
         EntityTransaction etx = em.getTransaction();
 
+        //hacemos el begin, persist y commit y cerramos la conexion
         System.out.println("begin");
         etx.begin();
 
@@ -79,7 +84,7 @@ public class Cicle_control implements CicleIn{
         // El persistim a la base de dades
         //em.getTransaction().begin();
         EntityTransaction etx = em.getTransaction();
-
+        //hacemos el begin, merge y commit y cerramos la conexion
         System.out.println("begin");
         etx.begin();
 
@@ -108,6 +113,7 @@ public class Cicle_control implements CicleIn{
         //em.getTransaction().begin();
         EntityTransaction etx = em.getTransaction();
 
+        //hacemos el begin, remove , commit y cerramos la conexion
         System.out.println("begin");
         etx.begin();
 
@@ -130,26 +136,29 @@ public class Cicle_control implements CicleIn{
 
         System.out.println("Consulta");
         //List<Persona> lista = (List<Persona>) em.createQuery("FROM Persona").getResultList();
+        //creamos el Query
         Query q = em.createQuery("FROM Cicle");
+        //recogemos el resultado
         List<Cicle> lista = (List<Cicle>) q.getResultList();
         //imprimirLista(lista);
-
+        //cerramos la conexion
         System.out.println("close");
         em.close();
         
-//        for (int i = 0; i < lista.size(); i++) {
-//            System.out.println(lista.get(i));
-//        }
+
+    //devolvemos la lista
         return lista;
     }
     
     public Cicle imprimirLista(List<Cicle> lista, int i) {
         System.out.println("Numero: = " + lista.size());
+        //devolvemos el objeto i de la lista
         return lista.get(i);
     }
 
     public String imprimirCicle(Cicle c) {
         System.out.println(c);
+         //devolvemos el nombre del ciclo
         return c.getNombreCicle();
     }
 

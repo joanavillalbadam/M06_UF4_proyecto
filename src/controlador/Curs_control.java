@@ -27,11 +27,14 @@ public class Curs_control implements CursIn {
         EntityManager em = new Controlador().getEntityManager();
 
         System.out.println("Busqueda per id curs: ");
+        //recogemos el resultado
         Curs curs = (Curs) em.find(Curs.class, idCurs);
 
+        //cerramos la conexion
         System.out.println("close");
         em.close();
 
+        //devolvemos el objeto
         return curs;
     }
 
@@ -46,6 +49,7 @@ public class Curs_control implements CursIn {
         //em.getTransaction().begin();
         EntityTransaction etx = em.getTransaction();
 
+        //hacemos el begin, persist y commit y cerramos la conexion
         System.out.println("begin");
         etx.begin();
 
@@ -74,6 +78,7 @@ public class Curs_control implements CursIn {
         //em.getTransaction().begin();
         EntityTransaction etx = em.getTransaction();
 
+         //hacemos el begin, merge y commit y cerramos la conexion
         System.out.println("begin");
         etx.begin();
 
@@ -100,6 +105,7 @@ public class Curs_control implements CursIn {
         //em.getTransaction().begin();
         EntityTransaction etx = em.getTransaction();
 
+        //hacemos el begin, remove , commit y cerramos la conexion
         System.out.println("begin");
         etx.begin();
 
@@ -121,26 +127,29 @@ public class Curs_control implements CursIn {
 
         System.out.println("Consulta");
         //List<Persona> lista = (List<Persona>) em.createQuery("FROM Persona").getResultList();
+        //creamos el Query
         Query q = em.createQuery("FROM Curs");
+        //recogemos el resultado
         List<Curs> lista = (List<Curs>) q.getResultList();
         //imprimirLista(lista);
 
+        //cerramos la conexion
         System.out.println("close");
         em.close();
 
+           //devolvemos la lista
         return lista;
     }
 
     public Curs imprimirLista(List<Curs> lista, int i) {
         System.out.println("Numero: = " + lista.size());
-//        for (int i = 0; i < lista.size(); i++) {
-//            System.out.println(lista.get(i));
-//        }
+        //devolvemos el objeto i de la lista
         return lista.get(i);
     }
 
     public String imprimirCurs(Curs c) {
         System.out.println(c);
+         //devolvemos el numero del curso
         return c.getPrimSegun();
     }
 

@@ -13,6 +13,6 @@ import model.Cicle;
  * @author ALUMNEDAM
  */
 public interface CicleIn extends SuperGenerica<Cicle>{
-    
+    //Declaramos una interficie que extiende de la clase SuperGenerica para ahorrar lineas de codigo
     public Cicle buscarCiclo(String nomCicle) throws ExceptionBuscar;
 }

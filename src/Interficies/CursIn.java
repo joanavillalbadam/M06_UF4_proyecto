@@ -13,5 +13,6 @@ import model.Curs;
  * @author ALUMNEDAM
  */
 public interface CursIn extends SuperGenerica<Curs>{
+    //Declaramos una interficie que extiende de la clase SuperGenerica para ahorrar lineas de codigo
     public Curs buscarCurso(Long idCurs) throws ExceptionBuscar;
 }

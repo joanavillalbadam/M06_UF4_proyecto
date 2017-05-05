@@ -13,7 +13,7 @@ import model.Alumne;
  * @author ALUMNEDAM
  */
 public interface AlumneIn extends SuperGenerica<Alumne> {
-    
+    //Declaramos una interficie que extiende de la clase SuperGenerica para ahorrar lineas de codigo
     public Alumne buscarPorNombre(String nom)throws ExceptionBuscar;
     
 }

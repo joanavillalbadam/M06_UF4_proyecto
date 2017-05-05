@@ -26,15 +26,17 @@ public class Alumne_control implements AlumneIn {
 
         // Recupera el entity manager
         EntityManager em = new Controlador().getEntityManager();
-
+        //hacemos la guery
         System.out.println("Busqueda per nom Alumne: ");
         Query query = em.createNamedQuery(Alumne.CONSULTA, Alumne.class);
+        //le pasamos el parametro con el que ara el where
         query.setParameter("nombre", nom);
+        //recojemos el resultado
         Alumne c = (Alumne) query.getSingleResult();
-
+        //cerramos la conexion
         System.out.println("close");
         em.close();
-
+        //devolvemos el objeto
         return c;
 
     }
@@ -50,6 +52,7 @@ public class Alumne_control implements AlumneIn {
         //em.getTransaction().begin();
         EntityTransaction etx = em.getTransaction();
 
+        //hacemos el begin, persist y commit y cerramos la conexion
         System.out.println("begin");
         etx.begin();
 
@@ -78,6 +81,7 @@ public class Alumne_control implements AlumneIn {
         //em.getTransaction().begin();
         EntityTransaction etx = em.getTransaction();
 
+        //hacemos el begin, merge y commit y cerramos la conexion
         System.out.println("begin");
         etx.begin();
 
@@ -104,6 +108,7 @@ public class Alumne_control implements AlumneIn {
         //em.getTransaction().begin();
         EntityTransaction etx = em.getTransaction();
 
+        //hacemos el begin, remove , commit y cerramos la conexion
         System.out.println("begin");
         etx.begin();
 
@@ -124,24 +129,28 @@ public class Alumne_control implements AlumneIn {
         EntityManager em = new Controlador().getEntityManager();
 
         System.out.println("Consulta");
+        //creamos el Query
         Query q = em.createQuery("FROM Alumne");
+        //recogemos el resultado
         List<Alumne> lista = (List<Alumne>) q.getResultList();
 
-
+        //cerramos la conexion
         System.out.println("close");
         em.close();
-
+        
+        //devolvemos la lista
         return lista;
     }
 
     public Alumne imprimirLista(List<Alumne> lista, int i) {
         System.out.println("Numero: = " + lista.size());
-
+        //devolvemos el objeto i de la lista
         return lista.get(i);
     }
 
     public String imprimirAlumne(Alumne alumne) {
         System.out.println(alumne);
+        //devolvemos el nif del alumno
         return alumne.getNif();
     }
 

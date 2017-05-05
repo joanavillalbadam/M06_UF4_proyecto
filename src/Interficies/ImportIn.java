@@ -13,6 +13,6 @@ import model.Import;
  * @author ALUMNEDAM
  */
 public interface ImportIn extends SuperGenerica<Import> {
-
+//Declaramos una interficie que extiende de la clase SuperGenerica para ahorrar lineas de codigo
     public Import buscarImporte(Long idImport) throws ExceptionBuscar;
 }

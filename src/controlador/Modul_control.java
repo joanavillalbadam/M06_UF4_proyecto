@@ -28,14 +28,19 @@ public class Modul_control implements ModulIn {
         // Recupera el entity manager
         EntityManager em = new Controlador().getEntityManager();
 
+        //hacemos la guery
         System.out.println("Busqueda per nom Modul: ");
         Query query = em.createNamedQuery(Modul.CONSULTA, Modul.class);
+        //le pasamos el parametro con el que ara el where
         query.setParameter("nombre", nomModul);
+        //recojemos el resultado
         Modul mod = (Modul) query.getSingleResult();
 
+        //cerramos la conexion
         System.out.println("close");
         em.close();
 
+        //devolvemos el objeto
         return mod;
 
     }
@@ -51,6 +56,7 @@ public class Modul_control implements ModulIn {
         //em.getTransaction().begin();
         EntityTransaction etx = em.getTransaction();
 
+        //hacemos el begin, persist y commit y cerramos la conexion
         System.out.println("begin");
         etx.begin();
 
@@ -79,6 +85,7 @@ public class Modul_control implements ModulIn {
         //em.getTransaction().begin();
         EntityTransaction etx = em.getTransaction();
 
+        //hacemos el begin, merge y commit y cerramos la conexion
         System.out.println("begin");
         etx.begin();
 
@@ -105,6 +112,7 @@ public class Modul_control implements ModulIn {
         //em.getTransaction().begin();
         EntityTransaction etx = em.getTransaction();
 
+        //hacemos el begin, remove , commit y cerramos la conexion
         System.out.println("begin");
         etx.begin();
 
@@ -126,27 +134,30 @@ public class Modul_control implements ModulIn {
 
         System.out.println("Consulta");
         //List<Persona> lista = (List<Persona>) em.createQuery("FROM Persona").getResultList();
+        //creamos el Query
         Query q = em.createQuery("FROM Modul");
+        //recogemos el resultado
         List<Modul> lista = (List<Modul>) q.getResultList();
         // imprimirLista(lista);
 
+        //cerramos la conexion
         System.out.println("close");
         em.close();
 
+        //devolvemos la lista
         return lista;
     }
 
     public Modul imprimirLista(List<Modul> lista, int i) {
         System.out.println("Numero: = " + lista.size());
-//        for (int i = 0; i < lista.size(); i++) {
-//            System.out.println(lista.get(i));
-//        }
+
+        //devolvemos el objeto i de la lista
         return lista.get(i);
     }
 
     public String imprimirModul(Modul mod) {
         System.out.println(mod);
-
+        //devolvemos el nombre del modulo
         return mod.getNomModul();
     }
 

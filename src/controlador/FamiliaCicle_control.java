@@ -27,14 +27,19 @@ public class FamiliaCicle_control implements FamiliaIn {
         // Recupera el entity manager
         EntityManager em = new Controlador().getEntityManager();
 
+         //hacemos la guery
         System.out.println("Busqueda per nom Familia Cicle: ");
         Query query = em.createNamedQuery(FamiliaCicle.CONSULTA, FamiliaCicle.class);
+        //le pasamos el parametro con el que ara el where
         query.setParameter("nombre", nomFamilia);
+        //recojemos el resultado
         FamiliaCicle c = (FamiliaCicle) query.getSingleResult();
 
+        //cerramos la conexion
         System.out.println("close");
         em.close();
 
+        //devolvemos el objeto
         return c;
 
     }
@@ -50,6 +55,7 @@ public class FamiliaCicle_control implements FamiliaIn {
         //em.getTransaction().begin();
         EntityTransaction etx = em.getTransaction();
 
+        //hacemos el begin, persist y commit y cerramos la conexion
         System.out.println("begin");
         etx.begin();
 
@@ -78,6 +84,7 @@ public class FamiliaCicle_control implements FamiliaIn {
         //em.getTransaction().begin();
         EntityTransaction etx = em.getTransaction();
 
+        //hacemos el begin, merge y commit y cerramos la conexion
         System.out.println("begin");
         etx.begin();
 
@@ -104,6 +111,7 @@ public class FamiliaCicle_control implements FamiliaIn {
         //em.getTransaction().begin();
         EntityTransaction etx = em.getTransaction();
 
+         //hacemos el begin, remove , commit y cerramos la conexion
         System.out.println("begin");
         etx.begin();
 
@@ -125,25 +133,28 @@ public class FamiliaCicle_control implements FamiliaIn {
 
         System.out.println("Consulta");
         //List<Persona> lista = (List<Persona>) em.createQuery("FROM Persona").getResultList();
+        //creamos el Query
         Query q = em.createQuery("FROM FamiliaCicle");
+         //recogemos el resultado
         List<FamiliaCicle> lista = (List<FamiliaCicle>) q.getResultList();
         //imprimirLista(lista);
 
+        //cerramos la conexion
         System.out.println("close");
         em.close();
+        //devolvemos la lista
         return lista;
     }
 
     public FamiliaCicle imprimirLista(List<FamiliaCicle> lista, int i) {
         System.out.println("Numero: = " + lista.size());
-//        for (int i = 0; i < lista.size(); i++) {
-//            System.out.println(lista.get(i));
-//        }
+        //devolvemos el objeto i de la lista
         return lista.get(i);
     }
 
     public String imprimirFamiliaCicle(FamiliaCicle fam) {
         System.out.println(fam);
+        //devolvemos el nombre de familia
         return fam.getNombreFamilia();
     }
 
