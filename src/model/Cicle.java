@@ -29,40 +29,59 @@ import org.hibernate.annotations.FetchMode;
  */
 
 @Entity
+//El query para buscar el cicle por el nombre
 @NamedQueries({
     @NamedQuery(name = Cicle.CONSULTA, query = "SELECT c FROM Cicle c WHERE c.nombreCicle=:nombre")})
-@Table(name = "M6UF4_Cicle")
+@Table(name = "M6UF4_Cicle") //Nombre de la tabla en base de dato.
 
 public class Cicle implements Serializable {
 
+    //nombre de la consulta
     public static final String CONSULTA = "nomCicle";
     
+    //El id de cicle
     private static final long serialVersionUID = 1L;
     @Id
     @Column(name = "id_Cicle", nullable = false, unique = true)
     private Long idCicle;
 
+    //Columna de nombre de cicle
     @Column(name = "nombre_Cicle", nullable = false)
     private String nombreCicle;
     
+    //El grado
     @Column(name = "grau", nullable = false)
     private int grau;
     
+    //Relacion de muchos a uno, con familia cicle.
     @ManyToOne
     @JoinColumn(name = "familia_cicle")
     private FamiliaCicle cicleF;
     
+    
+    //Relacion de uno a muchos, con la lista de modulos
     @OneToMany(fetch = FetchType.EAGER,mappedBy="cicleM")
     @Fetch(value = FetchMode.SUBSELECT)
     List<Modul> listaModul;
     
+    
+    //Relacion uno a mucho con la lista de cursos.
     @OneToMany(fetch = FetchType.EAGER, mappedBy="cicleC")
     @Fetch(value = FetchMode.SUBSELECT)
     List<Curs> listaCurs;
 
+    /**
+     * Constructor vacio
+     */
     public Cicle() {
     }
 
+    /**
+     * Constructor
+     * @param idCicle
+     * @param nombreCicle
+     * @param grau 
+     */
     public Cicle(Long idCicle, String nombreCicle, int grau) {
         this.idCicle = idCicle;
         this.nombreCicle = nombreCicle;
@@ -72,6 +91,9 @@ public class Cicle implements Serializable {
         
     }
 
+    
+    //Getter y setters, y los methodos por defecto de entitat
+    
     public FamiliaCicle getCicleF() {
         return cicleF;
     }

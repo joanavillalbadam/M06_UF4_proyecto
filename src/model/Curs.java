@@ -28,39 +28,57 @@ import org.hibernate.annotations.FetchMode;
  * @author ALUMNEDAM
  */
 @Entity
+//El query para buscar el curso por el su id.
 @NamedQueries({
     @NamedQuery(name = Curs.CONSULTA, query = "SELECT curs FROM Curs curs WHERE curs.idCurso=:id")})
-@Table(name = "M6UF4_Curs")
+@Table(name = "M6UF4_Curs") //Nombre de la tabla en base de dato.
 
 public class Curs implements Serializable {
 
+    //nombre de la consulta
     private static final long serialVersionUID = 1L;
     
+    //Id de curso
     public static final String CONSULTA = "idCurs";
     @Id
     @Column(name = "id_Curs", nullable = false, unique = true)
     private Long idCurso;
     
+    //El ano de curos si es primero o segundo
     @Column(name = "curso")
     String primSegun;
     
+    //Relacion de muchos a uno con el ciclo
     @ManyToOne
     @JoinColumn(name = "cicle_curs")
     private Cicle cicleC;
     
+    //Relacion de uno a mucho con la lista de unitat formativa
     @OneToMany(fetch = FetchType.EAGER, mappedBy="cursUF")
     @Fetch(value = FetchMode.SUBSELECT)
     List<UnitatFormativa> listaUnitatCurs;
 
+    
+    /**
+     * Constructor vacio
+     */
     public Curs() {
     }
 
+    /**
+     * Constructor 
+     * @param idCurso
+     * @param primSegun 
+     */
     public Curs(Long idCurso, String primSegun) {
         this.idCurso = idCurso;
         this.primSegun = primSegun;
         this.listaUnitatCurs = new ArrayList<>();
     }
 
+    
+    //Getter y setters, y los methodos por defecto de entitat
+    
     public Cicle getCicleC() {
         return cicleC;
     }

@@ -26,34 +26,51 @@ import org.hibernate.annotations.FetchMode;
  * @author ALUMNEDAM
  */
 @Entity
+//El query para buscar el Import por su id.
 @NamedQueries({
     @NamedQuery(name = Import.CONSULTA, query = "SELECT i FROM Import i WHERE i.idImport=:id")})
-@Table(name = "M6UF4_Import")
+@Table(name = "M6UF4_Import") //Nombre de la tabla en base de dato.
 public class Import implements Serializable {
 
-    
+    //nombre de la consulta
     public static final String CONSULTA = "idImport";
     
+    //id de import
     private static final long serialVersionUID = 1L;
     @Id
     @Column(name = "id_Import", nullable = false, unique = true)
     private Long idImport;
     
+    // Columna de precio .
     @Column(name = "import", nullable = false)
     private double importe;
     
+    //Relacion de uno a uno con la matricula.
     @OneToOne(mappedBy = "importe")
     private Matricula matricula;
 
+    /**
+     * Constructor vacio
+     */
     public Import() {
     }
 
+    /**
+     * Constructor
+     * @param idImport
+     * @param importe
+     * @param matricula 
+     */
     public Import(Long idImport, double importe, Matricula matricula) {
         this.idImport = idImport;
         this.importe = importe;
         this.matricula = matricula;
     }
 
+    
+    //Getter y setters, y los methodos por defecto de entitat
+    
+    
     public double getImporte() {
         return importe;
     }

@@ -31,29 +31,35 @@ import org.hibernate.annotations.FetchMode;
  * @author ALUMNEDAM
  */
 @Entity
+//El query para buscar el matricula por su id.
 @NamedQueries({
     @NamedQuery(name = Matricula.CONSULTA, query = "SELECT m FROM Matricula m WHERE m.idMatricula=:id")})
-@Table(name = "M6UF4_Matricula")
+@Table(name = "M6UF4_Matricula") //Nombre de la tabla en base de dato.
 public class Matricula implements Serializable {
 
+    //nombre de la consulta
     public static final String CONSULTA = "idMAtricula";
 
+    //Id de matricula
     private static final long serialVersionUID = 1L;
     @Id
     @Column(name = "id_Matricula", nullable = false, unique = true)
     private Long idMatricula;
 
+    //Columna de opbjeto alumno
     @Column(name = "alumne", nullable = false)
     private Alumne alumne;
     
+    //Columna de fecha de matricula
     @Column(name = "dataMatricula", nullable = false)
     private String dataMatricula;
 
+    //Relacion de uno a muchos con la lista de unitat formativa
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "matricula")
     @Fetch(value = FetchMode.SUBSELECT)
     List<UnitatFormativa> unitatFormativa;
 
-    //@OneToOne(cascade = {CascadeType.ALL})
+    //Relacion de uno a uno con el import
     @OneToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "import_matricula")
     private Import importe;
@@ -67,9 +73,20 @@ public class Matricula implements Serializable {
     @Column(name = "descuentos", nullable = false)
     private boolean descuentos;
 
+    /**
+     * Constructor vacio
+     */
     public Matricula() {
     }
 
+    /**
+     * Constructor 
+     * @param idMatricula
+     * @param alumne
+     * @param dataMatricula
+     * @param modalitat
+     * @param descuentos 
+     */
     public Matricula(Long idMatricula, Alumne alumne, String dataMatricula, boolean modalitat, boolean descuentos) {
         this.idMatricula = idMatricula;
         this.alumne = alumne;
@@ -79,6 +96,10 @@ public class Matricula implements Serializable {
         this.unitatFormativa = new ArrayList<>();
     }
 
+    
+    //Getter y setters, y los methodos por defecto de entitat
+    
+    
     public Import getImporte() {
         return importe;
     }

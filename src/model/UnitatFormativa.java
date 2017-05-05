@@ -25,46 +25,69 @@ import javax.persistence.Table;
  * @author ALUMNEDAM
  */
 @Entity
+//El query para buscar el UnitatFormativa por el nombre
 @NamedQueries({
     @NamedQuery(name = UnitatFormativa.CONSULTA, query = "SELECT uf FROM UnitatFormativa uf WHERE uf.nomUnitat=:nombre")})
-@Table(name = "M6UF4_UnitatFormativa")
+@Table(name = "M6UF4_UnitatFormativa") //Nombre de la tabla en base de dato.
 public class UnitatFormativa implements Serializable {
     
+    
+    //nombre de la consulta
     public static final String CONSULTA = "nomUnitat";
 
+    //id de uf
     private static final long serialVersionUID = 1L;
     @Id
     @Column(name = "id_UF", nullable = false, unique = true)
     private Long idUnitat;
       
+    //Nombre de uf
     @Column(name = "nomUnitat")
     String nomUnitat;
     
+    //Horas que contiene ese uf
     @Column(name = "horas")
     String horas;
     
+    //Relacion de muchos a uno con el curs
     @ManyToOne
     @JoinColumn(name = "Curs_UF")
     private Curs cursUF;
 
-    
+    //Relacion de muchos a uno con el modulo
     @ManyToOne
     @JoinColumn(name = "Modulo_UF")
     private Modul modulUF;
     
+    
+    //Relacion de muchos a uno con la tabla matricula
     @ManyToOne
     @JoinColumn(name = "Matricula_UF")
     private Matricula matricula;
      
+    
+    /**
+     * Constructor vacio
+     */
     public UnitatFormativa() {
     }
 
+    /**
+     * Constructor
+     * @param idUnitat
+     * @param nomUnitat
+     * @param horas 
+     */
     public UnitatFormativa(Long idUnitat, String nomUnitat, String horas) {
         this.idUnitat = idUnitat;
         this.nomUnitat = nomUnitat;
         this.horas = horas;
     }
 
+    
+    //Getter y setters, y los methodos por defecto de entitat
+    
+    
     public Curs getCursUF() {
         return cursUF;
     }

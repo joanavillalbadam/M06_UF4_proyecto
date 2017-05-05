@@ -28,39 +28,58 @@ import org.hibernate.annotations.FetchMode;
  * @author ALUMNEDAM
  */
 @Entity
+//El query para buscar el modul por el nombre
 @NamedQueries({
     @NamedQuery(name = Modul.CONSULTA, query = "SELECT m FROM Modul m WHERE m.nomModul=:nombre")})
-@Table(name = "M6UF4_Modul")
+@Table(name = "M6UF4_Modul") //Nombre de la tabla en base de dato.
 
 public class Modul implements Serializable {
     
+    //nombre de la consulta
     public static final String CONSULTA = "nomModul";
 
+    //id de modulo
     private static final long serialVersionUID = 1L;
     @Id
     @Column(name = "id_Modul", nullable = false, unique = true)
     private Long idModul;
     
+    //Columna de nombre de modulo
     @Column(name = "nomModul")
     String nomModul;
     
+    //Relacion de muchos a uno con el cicle
     @ManyToOne
     @JoinColumn(name = "cicle_modul")
     private Cicle cicleM;
     
+    
+    //Relacion de uno a mucho con la lista de unitatformativa
     @OneToMany(fetch = FetchType.EAGER, mappedBy="modulUF")
     @Fetch(value = FetchMode.SUBSELECT)
     List<UnitatFormativa> listaUnitatModul;
 
+    /**
+     * Constructor vacio
+     */
     public Modul() {
     }
 
+    /**
+     * Constructor
+     * @param idModul
+     * @param nomModul 
+     */
     public Modul(Long idModul, String nomModul) {
         this.idModul = idModul;
         this.nomModul = nomModul;
         this.listaUnitatModul = new ArrayList<>();
     }
 
+    
+    //Getter y setters, y los methodos por defecto de entitat
+    
+    
     public Cicle getCicleM() {
         return cicleM;
     }

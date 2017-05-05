@@ -18,35 +18,52 @@ import javax.persistence.Table;
  * @author ALUMNEDAM
  */
 @Entity
+//EL querie para buscar un alumne desde su nombre
 @NamedQueries({
     @NamedQuery(name = Alumne.CONSULTA, query = "SELECT a FROM Alumne a WHERE a.nombreAlum=:nombre")})
-@Table(name = "M6UF4_Alumne")
+@Table(name = "M6UF4_Alumne")//Nombre de tabla
 
 public class Alumne implements Serializable {
 
+    //Nombre de la consulta
     public static final String CONSULTA = "nomAlumne";
     
+    //Id de alumno, que sera su nif
     private static final long serialVersionUID = 1L;
     @Id
     @Column(name = "nif", length = 9, nullable = false, unique = true)
     private String nif;
    
-    
+    //Columna de nombre de alumno
     @Column(name = "nombre_alum", nullable = false)
     private String nombreAlum;
     
+    //Apellido de alumno
     @Column(name = "cognom_alum")
     private String cognomAlum;
     
+    //SU correo electronico
     @Column(name = "correo", length = 25, nullable = false, unique = true)
     private String correo;
     
+    //El telefono de alumno
     @Column(name = "telefono", length = 9, nullable = false)
     private int telefono;
 
+    /**
+     * Constructor vacio
+     */
     public Alumne() {
     }
 
+    /**
+     * Constructo para iniciar datos
+     * @param nif
+     * @param nombreAlum
+     * @param cognomAlum
+     * @param correo
+     * @param telefono 
+     */
     public Alumne(String nif, String nombreAlum, String cognomAlum, String correo, int telefono) {
         this.nif = nif;
         this.nombreAlum = nombreAlum;
@@ -55,7 +72,7 @@ public class Alumne implements Serializable {
         this.telefono = telefono;
     }
 
-    
+    //Getter y setters, y los methodos por defecto de entitat
 
     public String getNombreAlum() {
         return nombreAlum;
